@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman | Data Engineer</title>
+    
+    <!-- Google Fonts (Inter for English) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0B192C',
+                        secondary: '#1E3E62',
+                        accent: '#00FF9C',
+                        light: '#F8FAFC',
+                        muted: '#64748B'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F8FAFC; }
+        ::-webkit-scrollbar-thumb { background: #1E3E62; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0B192C; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-primary antialiased selection:bg-accent selection:text-primary">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-2xl font-extrabold text-primary tracking-wider flex items-center gap-2">
+                        <i class="fas fa-database text-accent bg-primary p-2 rounded-lg text-sm"></i>
+                        Abdelrahman
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex gap-8 items-center">
+                    <a href="#home" class="text-primary hover:text-secondary font-bold transition-colors">Home</a>
+                    <a href="#about" class="text-primary hover:text-secondary font-bold transition-colors">About</a>
+                    <a href="#skills" class="text-primary hover:text-secondary font-bold transition-colors">Skills</a>
+                    <a href="#projects" class="text-primary hover:text-secondary font-bold transition-colors">Projects</a>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-md hover:bg-secondary transition-all shadow-md">Contact Me</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-gray-100">
+            <div class="px-4 py-4 flex flex-col gap-4 text-center">
+                <a href="#home" class="mobile-link text-primary font-bold hover:text-secondary">Home</a>
+                <a href="#about" class="mobile-link text-primary font-bold hover:text-secondary">About</a>
+                <a href="#skills" class="mobile-link text-primary font-bold hover:text-secondary">Skills</a>
+                <a href="#projects" class="mobile-link text-primary font-bold hover:text-secondary">Projects</a>
+                <a href="#contact" class="mobile-link bg-primary text-white px-6 py-2 rounded-md mx-auto inline-block">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center bg-gradient-to-b from-white to-light">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <div class="absolute top-20 right-10 w-32 h-32 border-4 border-primary rounded-full"></div>
+            <div class="absolute bottom-20 left-10 w-40 h-40 border-4 border-secondary rotate-45"></div>
+            <div class="absolute top-40 left-1/4 w-20 h-20 bg-accent rounded-full blur-2xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="text-left reveal">
+                    <div class="inline-block bg-primary text-accent px-4 py-1 rounded-full text-sm font-bold mb-6 flex items-center gap-2 w-max">
+                        <i class="fas fa-code"></i> Available for Work & Internships
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary leading-tight mb-4">
+                        Hi, I'm <span class="text-secondary">Abdelrahman</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-secondary font-bold mb-6 flex flex-col gap-2">
+                        <span>Data Engineer</span>
+                    </h2>
+                    <p class="text-lg text-muted mb-8 max-w-lg leading-relaxed">
+                        I design and build robust Data Pipelines, optimize database architectures, and manage large-scale data systems to empower data-driven decisions.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-primary text-white px-8 py-3 rounded-md font-bold hover:bg-secondary transition-all shadow-lg hover:-translate-y-1">
+                            Explore Projects
+                        </a>
+                        <a href="#contact" class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-md font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
+                            Download CV <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-center reveal" style="transition-delay: 0.2s;">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute inset-0 bg-secondary rounded-2xl -rotate-3 transform scale-105 opacity-20"></div>
+                        <img src="https://placehold.co/600x600/1E3E62/ffffff?text=Data+Engineering" alt="Data Engineering" class="rounded-2xl shadow-2xl relative z-10 w-full h-auto border-8 border-white">
+                        
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl z-20 animate-bounce">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-green-100 p-2 rounded-full text-green-600">
+                                    <i class="fas fa-chart-line text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-muted">Current Focus</p>
+                                    <p class="text-sm font-bold text-primary">Microsoft Data Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-primary text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                
+                <div class="md:col-span-4 reveal">
+                    <div class="w-20 h-1 bg-accent mb-6 rounded-full"></div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">My <span class="text-accent">Journey</span></h2>
+                    <p class="text-gray-400">Continuous passion for learning and transforming complex data into practical solutions.</p>
+                </div>
+                
+                <div class="md:col-span-8 bg-secondary/30 p-8 rounded-2xl border border-white/10 reveal" style="transition-delay: 0.2s;">
+                    <div class="space-y-6 text-gray-300 leading-relaxed text-lg">
+                        <p>
+                            I am a <strong class="text-white">Computer Science student at Zagazig National University</strong>. Since the beginning of my academic journey, I have been fascinated by the world of Big Data and AI, which drove me to specialize in this fast-paced field.
+                        </p>
+                        <p>
+                            Currently, I am honing my skills as an intern in the <strong class="text-accent">Microsoft Data Engineer</strong> track under the Digital Egypt Pioneers Initiative (<strong class="text-white">DEPI</strong>), where I am trained on the latest cloud technologies and data management tools.
+                        </p>
+                        <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
+                            <div class="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-2xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Zagazig National University</h4>
+                                <p class="text-sm text-gray-400">Bachelor of Computer Science</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Technical <span class="text-secondary">Skills</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-muted max-w-2xl mx-auto">Tools and technologies I rely on to build data projects and develop AI models.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all reveal">
+                    <div class="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-lg">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Data Engineering</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">SQL</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Apache Hadoop</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Apache Spark</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Apache Kafka</span>
+                    </div>
+                </div>
+
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all reveal" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-lg">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Programming</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Python</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">C++</span>
+                    </div>
+                    <p class="text-sm text-muted mt-4">Strong expertise in algorithms, data structures, and competitive programming.</p>
+                </div>
+
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all reveal" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-lg">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Machine Learning</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Machine Learning</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Data Preprocessing</span>
+                        <span class="px-4 py-2 bg-white text-secondary rounded-md font-bold text-sm border border-gray-200">Predictive Modeling</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Featured <span class="text-secondary">Projects</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100 flex flex-col reveal">
+                    <div class="h-48 bg-secondary relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-chart-bar text-6xl text-white/50 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute inset-0 bg-primary/20"></div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-primary mb-2">PredictiStock</h3>
+                        <p class="text-muted mb-4 text-sm font-medium">Sales forecasting and inventory management.</p>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Designed and built the database and backend for an integrated application aimed at predicting future sales and optimizing commercial inventory management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-bold mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">DB Design</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">Backend</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">SQL</span>
+                        </div>
+                        <a href="#" class="mt-auto flex items-center text-secondary font-bold hover:text-primary transition-colors">
+                            View on GitHub <i class="fab fa-github ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100 flex flex-col reveal" style="transition-delay: 0.1s;">
+                    <div class="h-48 bg-primary relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-car text-6xl text-white/50 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute inset-0 bg-secondary/20"></div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-primary mb-2">Used Car Price Prediction</h3>
+                        <p class="text-muted mb-4 text-sm font-medium">End-to-End ML Pipeline.</p>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Developed an End-to-End ML Pipeline to collect and process used car data, train a predictive model to estimate prices based on specifications, and deploy the model for end-users.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-bold mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">Python</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">Machine Learning</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded">Pipeline</span>
+                        </div>
+                        <a href="#" class="mt-auto flex items-center text-secondary font-bold hover:text-primary transition-colors">
+                            View on GitHub <i class="fab fa-github ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100 flex flex-col reveal" style="transition-delay: 0.2s;">
+                    <div class="h-48 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-trophy text-6xl text-accent/70 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-primary mb-2">Competitive Programming</h3>
+                        <p class="text-muted mb-4 text-sm font-medium">Solving complex algorithmic problems.</p>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Active participation in solving algorithmic problems and applying data structures to improve logical thinking and write highly efficient C++ code.
+                        </p>
+                        <div class="bg-blue-50 p-3 rounded-lg mb-4 text-center border border-blue-100">
+                            <p class="text-xs text-blue-800 mb-1">Codeforces Handle</p>
+                            <p class="font-bold text-blue-900">@Abdelrahman_Ahmed2005</p>
+                        </div>
+                        <a href="https://codeforces.com/profile/Abdelrahman_Ahmed2005" target="_blank" class="mt-auto flex items-center text-secondary font-bold hover:text-primary transition-colors">
+                            Visit Profile <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-200 reveal">
+                
+                <div class="bg-primary text-white p-10 md:w-2/5 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2">Let's Connect!</h3>
+                        <p class="text-gray-400 mb-8 text-sm">I am always looking for new and exciting opportunities in the data field. Reach out via the form or the following platforms:</p>
+                        
+                        <div class="space-y-6">
+                            <a href="mailto:3bdoahmed75@gmail.com" class="flex items-center gap-4 hover:text-accent transition-colors group">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div class="w-full font-medium break-all">
+                                    3bdoahmed75@gmail.com
+                                </div>
+                            </a>
+                            <a href="#" target="_blank" class="flex items-center gap-4 hover:text-accent transition-colors group">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </div>
+                            <div class="w-full font-medium break-all">
+                                linkedin.com/in/abdelrahman
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="flex items-center gap-4 hover:text-accent transition-colors group">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20">
+                                <i class="fab fa-github text-xl"></i>
+                            </div>
+                            <div class="w-full font-medium break-all">
+                                github.com/abdelrahman
+                            </div>
+                        </a>
+                    </div>
+                                <div class="w-full font-medium break-all">
+                                    linkedin.com/in/abdelrhman
+                                </div>
+                            </a>
+                            <a href="#" target="_blank" class="flex items-center gap-4 hover:text-accent transition-colors group">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20">
+                                    <i class="fab fa-github text-xl"></i>
+                                </div>
+                                <div class="w-full font-medium break-all">
+                                    github.com/abdelrhman
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-10 md:w-3/5 bg-white">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-primary mb-2">Name</label>
+                            <input type="text" class="w-full bg-light border border-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-primary mb-2">Email</label>
+                            <input type="email" class="w-full bg-light border border-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="example@email.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-primary mb-2">Message</label>
+                            <textarea rows="4" class="w-full bg-light border border-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all resize-none" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-secondary transition-colors shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary border-t border-white/10 py-8 text-center">
+        <p class="text-gray-400 text-sm">
+            &copy; 2026 Abdelrahman - Data Engineer. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const navbar = document.getElementById('navbar');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('hidden')){
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // 2. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+
+        // 3. Form Submission Simulation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sent Successfully!';
+            btn.classList.replace('bg-primary', 'bg-green-600');
+            btn.classList.replace('hover:bg-secondary', 'hover:bg-green-700');
+            
+            setTimeout(() => {
+                this.reset();
+                btn.textContent = originalText;
+                btn.classList.replace('bg-green-600', 'bg-primary');
+                btn.classList.replace('hover:bg-green-700', 'hover:bg-secondary');
+            }, 3000);
+        });
+
+        // 4. Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
