@@ -7,325 +7,113 @@
     <!-- استدعاء الأيقونات -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- كود الـ CSS العادي (بدون Tailwind) -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fafafa; color: #333; line-height: 1.6; }
         
-        body {
-            background-color: #fafafa;
-            color: #333;
-            line-height: 1.6;
-        }
+        /* Navbar */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #fafafa; }
+        .logo { font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 10px; color: #0f172a; }
+        .logo-icon { background-color: #0f172a; color: #10b981; padding: 5px 8px; border-radius: 5px; font-size: 1rem; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: #0f172a; }
+        .contact-btn { background-color: #0f172a; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+
+        /* Hero Section */
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 60px 5%; min-height: 80vh; gap: 40px; }
+        .hero-left { flex: 1; }
+        .tag { background-color: #0f172a; color: #10b981; display: inline-block; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; }
+        .hero h1 { font-size: 4.5rem; color: #0f172a; line-height: 1.1; margin-bottom: 15px; }
+        .hero h2 { font-size: 2rem; color: #1e3a5f; margin-bottom: 20px; }
+        .hero p { color: #64748b; font-size: 1.1rem; max-width: 500px; margin-bottom: 30px; }
+        .btn-primary { background-color: #0f172a; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; }
         
-        /* الشريط العلوي - Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: #fafafa;
-        }
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #0f172a;
-        }
-        .logo-icon {
-            background-color: #0f172a;
-            color: #10b981;
-            padding: 5px 8px;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #475569;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #0f172a;
-        }
-        .contact-btn {
-            background-color: #0f172a;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+        .hero-right { flex: 1; display: flex; justify-content: center; position: relative; }
+        .main-card { background-color: #1e3a5f; width: 400px; height: 400px; border-radius: 20px; display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem; font-weight: bold; border: 5px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+        .card-shadow { position: absolute; background-color: #e2e8f0; width: 400px; height: 400px; border-radius: 20px; top: 20px; left: 50px; z-index: 1; }
+        .floating-card { position: absolute; bottom: -20px; left: -40px; background-color: white; padding: 15px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 15px; z-index: 3; }
+        .floating-icon { background-color: #d1fae5; color: #059669; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 8px; font-size: 1.2rem; }
+        .floating-text p:first-child { color: #94a3b8; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin: 0; }
+        .floating-text p:last-child { color: #0f172a; font-weight: bold; font-size: 0.9rem; margin: 0; }
 
-        /* الجزء الرئيسي - Hero Section */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 60px 5%;
-            min-height: 80vh;
-            gap: 40px;
-        }
-        .hero-left {
-            flex: 1;
-        }
-        .tag {
-            background-color: #0f172a;
-            color: #10b981;
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-        .hero h1 {
-            font-size: 4.5rem;
-            color: #0f172a;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-        .hero h2 {
-            font-size: 2rem;
-            color: #1e3a5f;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            color: #64748b;
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-        .btn-primary {
-            background-color: #0f172a;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        /* البطاقة الزرقاء - Hero Right */
-        .hero-right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-        .main-card {
-            background-color: #1e3a5f;
-            width: 400px;
-            height: 400px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            border: 5px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 2;
-        }
-        .card-shadow {
-            position: absolute;
-            background-color: #e2e8f0;
-            width: 400px;
-            height: 400px;
-            border-radius: 20px;
-            top: 20px;
-            left: 50px;
-            z-index: 1;
-        }
-        .floating-card {
-            position: absolute;
-            bottom: -20px;
-            left: -40px;
-            background-color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            z-index: 3;
-        }
-        .floating-icon {
-            background-color: #d1fae5;
-            color: #059669;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            font-size: 1.2rem;
-        }
-        .floating-text p:first-child {
-            color: #94a3b8;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 0;
-        }
-        .floating-text p:last-child {
-            color: #0f172a;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin: 0;
-        }
+        /* Sections Common */
+        .section-title { text-align: center; font-size: 2.5rem; color: #0f172a; margin-bottom: 40px; }
+        .section-padding { padding: 60px 5%; }
 
-        /* قسم المشاريع - Projects Section */
-        .projects-section {
-            padding: 60px 5%;
-            background-color: #f8fafc;
-        }
-        .projects-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #0f172a;
-            margin-bottom: 40px;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .project-card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        .project-title {
-            font-size: 1.2rem;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-        .project-desc {
-            color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        .project-tags {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .project-tag {
-            background-color: #d1fae5;
-            color: #047857;
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-        .project-link {
-            color: #1e3a5f;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .project-link:hover {
-            text-decoration: underline;
-        }
+        /* Skills Section */
+        .bg-white { background-color: white; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .skill-card { background-color: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .skill-card h3 { color: #1e3a5f; margin-bottom: 15px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .skill-card h3 i { color: #10b981; }
+        .skill-card p { color: #64748b; font-size: 0.95rem; line-height: 1.8; }
 
-        /* إعدادات الشاشات الصغيرة (الموبايل) */
+        /* Projects Section */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background-color: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; transition: transform 0.3s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-title { font-size: 1.2rem; color: #0f172a; margin-bottom: 10px; }
+        .project-desc { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        .project-tags { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .project-tag { background-color: #d1fae5; color: #047857; padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; font-weight: bold; }
+        .project-link { color: #1e3a5f; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .project-link:hover { text-decoration: underline; }
+
+        /* Education Section */
+        .edu-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .edu-item { background-color: white; padding: 20px 25px; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .edu-info h4 { color: #0f172a; font-size: 1.1rem; margin-bottom: 5px; }
+        .edu-info p { color: #64748b; font-size: 0.9rem; }
+        .edu-year { background-color: #f1f5f9; color: #475569; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; white-space: nowrap; }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+
         @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero p {
-                margin: 0 auto 30px auto;
-            }
-            .buttons {
-                justify-content: center;
-            }
-            .nav-links {
-                display: none;
-            }
-            .hero-right {
-                margin-top: 40px;
-            }
-            .card-shadow {
-                display: none;
-            }
-            .main-card {
-                width: 100%;
-                max-width: 350px;
-                height: 350px;
-            }
-            .floating-card {
-                left: 50%;
-                transform: translateX(-50%);
-                width: max-content;
-            }
+            .hero { flex-direction: column; text-align: center; }
+            .hero p { margin: 0 auto 30px auto; }
+            .nav-links { display: none; }
+            .hero-right { margin-top: 40px; }
+            .card-shadow { display: none; }
+            .main-card { width: 100%; max-width: 350px; height: 350px; }
+            .floating-card { left: 50%; transform: translateX(-50%); width: max-content; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
+    <!-- Navbar -->
     <nav>
         <div class="logo">
-            <span class="logo-icon"><i class="fas fa-database"></i></span>
-            Abdelrahman
+            <span class="logo-icon"><i class="fas fa-database"></i></span> Abdelrahman
         </div>
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
         </div>
         <a href="mailto:3bdoahmed75@gmail.com" class="contact-btn">Contact Me</a>
     </nav>
 
-    <!-- الجزء الرئيسي -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-left">
             <div class="tag"><i class="fas fa-code"></i> Available for Work & Internships</div>
             <h1>Hi, I'm<br>Abdelrahman</h1>
             <h2>Data Engineer</h2>
             <p>I design and build robust Data Pipelines, optimize database architectures, and manage large-scale data systems to empower data-driven decisions.</p>
-            
-            <div class="buttons">
-                <a href="#projects" class="btn-primary">Explore Projects</a>
-            </div>
+            <a href="#projects" class="btn-primary">Explore Projects</a>
         </div>
-
         <div class="hero-right">
             <div class="card-shadow"></div>
-            <div class="main-card">
-                Data Engineering
-            </div>
+            <div class="main-card">Data Engineering</div>
             <div class="floating-card">
-                <div class="floating-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+                <div class="floating-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="floating-text">
                     <p>Current Focus</p>
                     <p>Microsoft Data Engineer</p>
@@ -334,12 +122,34 @@
         </div>
     </section>
 
-    <!-- قسم المشاريع -->
-    <section id="projects" class="projects-section">
-        <h2 class="projects-title">Featured Projects</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-white">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                <p>Python, SQL, C++, Java, OpenMP</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-server"></i> Big Data & DE</h3>
+                <p>Apache Hadoop, Spark, PySpark, Kafka, Sqoop</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                <p>PCA, Random Forest, k-NN, Naive Bayes, RL</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-tools"></i> Tools</h3>
+                <p>Git, VS Code, NetBeans, Wokwi Simulation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
             
-            <!-- المشروع الأول -->
             <div class="project-card">
                 <h3 class="project-title">PredictiStock</h3>
                 <p class="project-desc">Sales and inventory prediction system. Engineered the database architecture, designed the ERD schema, and developed the backend infrastructure.</p>
@@ -350,7 +160,6 @@
                 <a href="https://github.com/3bdelrhman8/PredictiStock" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
 
-            <!-- المشروع الثاني -->
             <div class="project-card">
                 <h3 class="project-title">Used Car Price Prediction</h3>
                 <p class="project-desc">End-to-end Machine Learning pipeline. Implemented data preprocessing, feature engineering, and trained regression algorithms.</p>
@@ -361,7 +170,6 @@
                 <a href="https://github.com/3bdelrhman8/used-car-price-prediction" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
             
-            <!-- المشروع الثالث -->
             <div class="project-card">
                 <h3 class="project-title">Customer Churn Prediction</h3>
                 <p class="project-desc">Analytical project focused on predicting customer retention. Built using Jupyter Notebooks to explore datasets and visualize trends.</p>
@@ -372,8 +180,72 @@
                 <a href="https://github.com/3bdelrhman8/customer-churn-project" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
 
+            <div class="project-card">
+                <h3 class="project-title">IoT Smart Simulation</h3>
+                <p class="project-desc">Hardware simulation project utilizing Wokwi. Integrated ESP32 microcontrollers with PIR sensors and servo motors to build automated smart triggers.</p>
+                <div class="project-tags">
+                    <span class="project-tag">IoT</span>
+                    <span class="project-tag">ESP32</span>
+                    <span class="project-tag">C++</span>
+                </div>
+                <a href="#" class="project-link">Hardware & Dev</a>
+            </div>
+
         </div>
     </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-padding bg-white">
+        <h2 class="section-title">Education & Bootcamps</h2>
+        <div class="edu-list">
+            
+            <div class="edu-item">
+                <div class="edu-info">
+                    <h4>Data Engineer Trainee (Microsoft Track)</h4>
+                    <p>Digital Pioneers Initiative (DEPI)</p>
+                </div>
+                <div class="edu-year">2026</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <h4>Business Intelligence & Data Analysis Diploma</h4>
+                    <p>LINK Program</p>
+                </div>
+                <div class="edu-year">2026</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <h4>Build with AI: Masr Edition</h4>
+                    <p>Google Developer Groups</p>
+                </div>
+                <div class="edu-year">2026</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <h4>AI & Machine Learning Summer Camp</h4>
+                    <p>Sprints x Microsoft</p>
+                </div>
+                <div class="edu-year">2025</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <h4>B.Sc. Computer Science</h4>
+                    <p>Zagazig National University</p>
+                </div>
+                <div class="edu-year">2023 - Present</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Abdelrhman Ahmed. Data Engineer Portfolio.
+    </footer>
 
 </body>
 </html>
