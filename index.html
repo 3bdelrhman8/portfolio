@@ -1,127 +1,130 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelrhman Ahmed | Portfolio</title>
+    <title>Abdelrahman | Data Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0d1117; /* GitHub Dark Background */
-            color: #c9d1d9; 
-        }
-        .accent { color: #58a6ff; } /* GitHub Blue */
-        .card { 
-            background-color: #161b22; 
-            border: 1px solid #30363d; 
-            transition: all 0.2s ease-in-out;
-        }
-        .card:hover { 
-            border-color: #58a6ff; 
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa; }
+        .hero-shape {
+            background-color: #1e324f;
         }
     </style>
 </head>
-<body class="antialiased leading-relaxed">
-    
-    <!-- Header Section -->
-    <header class="max-w-4xl mx-auto px-6 py-24">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Abdelrhman Ahmed</h1>
-        <h2 class="text-xl md:text-2xl accent font-semibold mb-6">Data Engineer & Machine Learning Enthusiast</h2>
-        <p class="text-gray-400 text-lg mb-8 max-w-2xl leading-relaxed">
-            Computer Science undergraduate at Zagazig National University. Currently a Microsoft Data Engineer Trainee (DEPI), specializing in building scalable data pipelines, Big Data architectures, and predictive machine learning models.
-        </p>
-        <div class="flex gap-4">
-            <a href="https://github.com/3bdelrhman8" target="_blank" class="border border-gray-600 text-sm hover:border-[#58a6ff] hover:text-[#58a6ff] px-5 py-2 rounded-md transition-all">
-                GitHub Profile
-            </a>
-            <a href="mailto:3bdoahmed75@gmail.com" class="border border-gray-600 text-sm hover:border-[#58a6ff] hover:text-[#58a6ff] px-5 py-2 rounded-md transition-all">
-                Contact Me
-            </a>
-        </div>
-    </header>
+<body class="text-slate-800">
 
-    <!-- Technical Skills -->
-    <section class="max-w-4xl mx-auto px-6 py-10">
-        <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Technical Skills</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card p-6 rounded-lg">
-                <h4 class="text-white font-semibold mb-3">Programming</h4>
-                <p class="text-sm text-gray-400 leading-relaxed">Python, SQL, C++, Java, OpenMP</p>
+    <!-- Navbar -->
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center bg-[#fafafa]">
+        <div class="flex items-center gap-2 font-bold text-xl">
+            <div class="bg-slate-900 text-emerald-400 p-1.5 rounded-md text-sm">
+                <i class="fas fa-database"></i>
             </div>
-            <div class="card p-6 rounded-lg">
-                <h4 class="text-white font-semibold mb-3">Big Data</h4>
-                <p class="text-sm text-gray-400 leading-relaxed">Apache Hadoop, Spark, PySpark, Kafka, Sqoop</p>
+            Abdelrahman
+        </div>
+        <div class="hidden md:flex gap-8 font-semibold text-slate-700">
+            <a href="#" class="hover:text-slate-900">Home</a>
+            <a href="#about" class="hover:text-slate-900">About</a>
+            <a href="#skills" class="hover:text-slate-900">Skills</a>
+            <a href="#projects" class="hover:text-slate-900">Projects</a>
+        </div>
+        <a href="mailto:3bdoahmed75@gmail.com" class="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition">
+            Contact Me
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        
+        <!-- Left Content -->
+        <div class="space-y-6 relative z-10">
+            <div class="inline-block bg-slate-900 text-emerald-400 font-semibold text-sm px-4 py-2 rounded-full mb-2">
+                <i class="fas fa-code mr-1"></i> Available for Work & Internships
             </div>
-            <div class="card p-6 rounded-lg">
-                <h4 class="text-white font-semibold mb-3">Machine Learning</h4>
-                <p class="text-sm text-gray-400 leading-relaxed">PCA, Random Forest, k-NN, Data Preprocessing</p>
+            
+            <h1 class="text-6xl font-extrabold leading-tight text-slate-900">
+                Hi, I'm<br>Abdelrahman
+            </h1>
+            
+            <h2 class="text-3xl font-bold text-[#1e324f]">Data Engineer</h2>
+            
+            <p class="text-slate-500 text-lg max-w-md leading-relaxed">
+                I design and build robust Data Pipelines, optimize database architectures, and manage large-scale data systems to empower data-driven decisions.
+            </p>
+            
+            <!-- Buttons -->
+            <div class="pt-4 flex gap-4">
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-slate-800 transition shadow-lg">
+                    Explore Projects
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="relative w-full h-full flex justify-center items-center mt-10 md:mt-0">
+            
+            <!-- Main Blue Card -->
+            <div class="hero-shape w-full max-w-md aspect-square rounded-2xl shadow-2xl flex items-center justify-center relative z-10 border-4 border-white">
+                <h3 class="text-white text-3xl font-bold">Data Engineering</h3>
+                
+                <!-- Floating Small Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 border border-slate-100">
+                    <div class="bg-emerald-100 text-emerald-600 p-2 rounded-lg">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Current Focus</p>
+                        <p class="text-slate-800 font-bold text-sm">Microsoft Data Engineer</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="max-w-4xl mx-auto px-6 py-10">
-        <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Featured Projects</h3>
-        <div class="space-y-6">
-            
-            <!-- Project 1 -->
-            <div class="card p-7 rounded-lg">
-                <div class="flex justify-between items-start mb-2">
-                    <h4 class="text-xl font-bold text-white">PredictiStock</h4>
-                    <a href="https://github.com/3bdelrhman8/PredictiStock" target="_blank" class="text-sm text-gray-400 hover:text-[#58a6ff]">View Code &rarr;</a>
+    <section id="projects" class="bg-slate-50 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-slate-900 mb-12">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- PredictiStock -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">PredictiStock</h3>
+                    <p class="text-slate-500 text-sm mb-4">Sales and inventory prediction system. Engineered the database architecture, designed the ERD schema, and developed the backend infrastructure.</p>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">Python</span>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded">Data Engineering</span>
+                    </div>
+                    <a href="https://github.com/3bdelrhman8/PredictiStock" target="_blank" class="text-sm font-bold text-[#1e324f] hover:underline">View Repository &rarr;</a>
                 </div>
-                <p class="text-gray-400 mb-5 text-sm leading-relaxed">
-                    A robust sales and inventory prediction system. Engineered the database architecture, designed the ERD schema, and developed the backend infrastructure to forecast stock requirements accurately.
-                </p>
-                <div class="flex flex-wrap gap-3 text-xs font-semibold accent">
-                    <span>#Python</span>
-                    <span>#Data_Engineering</span>
-                    <span>#Database_Design</span>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="card p-7 rounded-lg">
-                <div class="flex justify-between items-start mb-2">
-                    <h4 class="text-xl font-bold text-white">Used Car Price Prediction</h4>
-                    <a href="https://github.com/3bdelrhman8/used-car-price-prediction" target="_blank" class="text-sm text-gray-400 hover:text-[#58a6ff]">View Code &rarr;</a>
-                </div>
-                <p class="text-gray-400 mb-5 text-sm leading-relaxed">
-                    An end-to-end Machine Learning pipeline that predicts used car prices. Implemented data preprocessing, feature engineering, and trained regression algorithms to achieve accurate price estimations.
-                </p>
-                <div class="flex flex-wrap gap-3 text-xs font-semibold accent">
-                    <span>#Machine_Learning</span>
-                    <span>#Python</span>
-                    <span>#Regression</span>
-                </div>
-            </div>
 
-        </div>
-    </section>
+                <!-- Used Car Price -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Used Car Price Prediction</h3>
+                    <p class="text-slate-500 text-sm mb-4">End-to-end Machine Learning pipeline. Implemented data preprocessing, feature engineering, and trained regression algorithms.</p>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">Machine Learning</span>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded">Python</span>
+                    </div>
+                    <a href="https://github.com/3bdelrhman8/used-car-price-prediction" target="_blank" class="text-sm font-bold text-[#1e324f] hover:underline">View Repository &rarr;</a>
+                </div>
+                
+                <!-- Customer Churn -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Customer Churn Prediction</h3>
+                    <p class="text-slate-500 text-sm mb-4">Analytical project focused on predicting customer retention. Built using Jupyter Notebooks to explore datasets and visualize trends.</p>
+                    <div class="flex gap-2 flex-wrap mb-4">
+                        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">Data Analysis</span>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded">Jupyter Notebook</span>
+                    </div>
+                    <a href="https://github.com/3bdelrhman8/customer-churn-project" target="_blank" class="text-sm font-bold text-[#1e324f] hover:underline">View Repository &rarr;</a>
+                </div>
 
-    <!-- Education & Training -->
-    <section class="max-w-4xl mx-auto px-6 py-10 mb-12">
-        <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Education & Training</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-lg">
-                <h4 class="text-white font-semibold mb-1">Microsoft Data Engineer Trainee</h4>
-                <p class="text-sm text-gray-400">Digital Pioneers Initiative (DEPI)</p>
-                <p class="text-xs text-gray-500 mt-2">2026</p>
-            </div>
-            <div class="card p-6 rounded-lg">
-                <h4 class="text-white font-semibold mb-1">B.Sc. Computer Science</h4>
-                <p class="text-sm text-gray-400">Zagazig National University</p>
-                <p class="text-xs text-gray-500 mt-2">2023 - Present</p>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="max-w-4xl mx-auto px-6 py-8 border-t border-gray-800 text-sm text-gray-600 text-center">
-        &copy; 2026 Abdelrhman Ahmed.
-    </footer>
 
 </body>
 </html>
