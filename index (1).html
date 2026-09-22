@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdelrahman Ahmed - Data Engineer Portfolio">
+  <title>Abdelrahman | Data Engineer</title>
+
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-2: #172554;
+      --green: #10b981;
+      --green-dark: #059669;
+      --text: #334155;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--navy);
+      color: var(--green);
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #475569;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 9px;
+      color: var(--white) !important;
+      background: var(--navy);
+    }
+
+    .nav-cta:hover {
+      background: #1e293b;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 110px 0 100px;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(16, 185, 129, 0.09), transparent 28%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      color: #166534;
+      background: #f0fdf4;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--green-dark);
+    }
+
+    .hero-subtitle {
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      font-weight: 750;
+      margin-bottom: 14px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 10px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow);
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--muted);
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .socials a:hover {
+      color: var(--green-dark);
+    }
+
+    .hero-card {
+      min-height: 360px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .data-visual {
+      width: 100%;
+      max-width: 390px;
+    }
+
+    .data-window {
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      border-radius: 15px;
+      background: #f8fafc;
+    }
+
+    .window-bar {
+      display: flex;
+      gap: 7px;
+      padding: 12px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      background: #f1f5f9;
+    }
+
+    .window-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .pipeline {
+      padding: 25px 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: 11px;
+      background: #fff;
+      font-weight: 750;
+      color: var(--navy);
+    }
+
+    .pipeline-step span {
+      color: var(--green-dark);
+      font-size: 0.82rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      color: var(--green-dark);
+      font-size: 0.86rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #cbd5e1;
+    }
+
+    .skill-number {
+      color: var(--green-dark);
+      font-size: 0.82rem;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* Projects */
+    .projects {
+      background: #f1f5f9;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 275px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      color: var(--navy);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .project-link {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .project-link:hover {
+      color: var(--green-dark);
+    }
+
+    /* Education */
+    .education-list {
+      display: grid;
+      gap: 16px;
+      max-width: 900px;
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 18px;
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .education-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow);
+    }
+
+    .education-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .education-item h3 {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .education-item p {
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .contact .section-label {
+      color: #6ee7b7;
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .contact-intro {
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-details a {
+      color: #e2e8f0;
+      transition: color 0.2s ease;
+    }
+
+    .contact-details a:hover {
+      color: #6ee7b7;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+    }
+
+    .contact-form label {
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-top: 7px;
+      border: 1px solid #334155;
+      border-radius: 9px;
+      padding: 12px 13px;
+      color: var(--white);
+      background: #0b1220;
+      font: inherit;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      margin-top: 3px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 25px 0;
+      background: #0b1220;
+      color: #94a3b8;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Animation */
+    .reveal {
+      animation: fadeUp 0.75s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links li:nth-child(-n+3) {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex !important;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 300px;
+        padding: 20px;
+      }
+
+      .contact-grid {
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Abdelrahman home">
+        <span class="brand-icon">▤</span>
+        <span>Abdelrahman</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a class="nav-cta" href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="availability">
+            <span class="availability-dot"></span>
+            Available for opportunities
+          </div>
+
+          <h1>Hi, I'm <span>Abdelrahman</span></h1>
+
+          <p class="hero-subtitle">Data Engineer</p>
+
+          <p class="hero-description">
+            I build reliable data pipelines, transform complex data into useful insights,
+            and work with modern data engineering technologies across cloud, databases,
+            ETL, and distributed processing.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Let's Connect</a>
+          </div>
+
+          <div class="socials">
+            <a href="https://github.com/3bdelrhman8" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/abdelrhman-ahmed-a03157372" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="mailto:3bdoahmed75@gmail.com">Email ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" aria-label="Data engineering pipeline illustration">
+          <div class="data-visual">
+            <div class="data-window">
+              <div class="window-bar">
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+              </div>
+
+              <div class="pipeline">
+                <div class="pipeline-step">
+                  <span>01</span>
+                  Data Sources
+                  <span>→</span>
+                </div>
+
+                <div class="pipeline-step">
+                  <span>02</span>
+                  ETL / ELT
+                  <span>→</span>
+                </div>
+
+                <div class="pipeline-step">
+                  <span>03</span>
+                  Data Warehouse
+                  <span>→</span>
+                </div>
+
+                <div class="pipeline-step">
+                  <span>04</span>
+                  Analytics
+                  <span>✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Technical Skills</div>
+          <h2>Tools I use to build data solutions.</h2>
+          <p>
+            A practical toolkit covering distributed systems, programming, databases,
+            cloud platforms, orchestration, ETL, and machine learning.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card">
+            <div class="skill-number">01</div>
+            <h3>Data Engineering</h3>
+            <p>Apache Hadoop, Apache Spark, PySpark, Kafka, Sqoop</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">02</div>
+            <h3>Programming</h3>
+            <p>Python, SQL, C++, Java, OpenMP</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">03</div>
+            <h3>Databases &amp; Warehousing</h3>
+            <p>MySQL, PostgreSQL, SQL Server, BigQuery, Data Warehouse</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">04</div>
+            <h3>Cloud &amp; DevOps</h3>
+            <p>Azure, AWS, Docker, Git</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">05</div>
+            <h3>Data Orchestration &amp; ETL</h3>
+            <p>Airflow, Talend, SSIS</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">06</div>
+            <h3>Machine Learning</h3>
+            <p>PCA, Random Forest, k-NN, Naive Bayes, Reinforcement Learning</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Selected Work</div>
+          <h2>Projects</h2>
+          <p>
+            A selection of projects demonstrating practical work with data,
+            machine learning, and software development.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <span class="project-tag">Machine Learning</span>
+            <h3>PredictiStock</h3>
+            <p>
+              A stock prediction project focused on using machine learning techniques
+              to analyze market data and generate predictions.
+            </p>
+            <a class="project-link"
+               href="https://github.com/3bdelrhman8/PredictiStock"
+               target="_blank"
+               rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">Machine Learning</span>
+            <h3>Used Car Price Prediction</h3>
+            <p>
+              A machine learning project for predicting used-car prices from relevant
+              vehicle features and historical data.
+            </p>
+            <a class="project-link"
+               href="https://github.com/3bdelrhman8/used-car-price-prediction"
+               target="_blank"
+               rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">Machine Learning</span>
+            <h3>Customer Churn Prediction</h3>
+            <p>
+              A classification project focused on identifying customers who may be
+              likely to leave a service.
+            </p>
+            <a class="project-link"
+               href="https://github.com/3bdelrhman8/customer-churn-project"
+               target="_blank"
+               rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Background</div>
+          <h2>Education &amp; Training</h2>
+          <p>
+            Academic and professional learning experiences related to data,
+            software, and artificial intelligence.
+          </p>
+        </div>
+
+        <div class="education-list">
+
+          <article class="education-item">
+            <span class="education-dot"></span>
+            <div>
+              <h3>Data Engineer Trainee (Microsoft Track)</h3>
+              <p>Digital Pioneers Initiative (DEPI)</p>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <span class="education-dot"></span>
+            <div>
+              <h3>Business Intelligence &amp; Data Analysis Diploma</h3>
+              <p>LINK Program</p>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <span class="education-dot"></span>
+            <div>
+              <h3>Build with AI: Masr Edition</h3>
+              <p>Google Developer Groups</p>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <span class="education-dot"></span>
+            <div>
+              <h3>AI &amp; Machine Learning Summer Camp</h3>
+              <p>Sprints x Microsoft</p>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <span class="education-dot"></span>
+            <div>
+              <h3>B.Sc. Computer Science</h3>
+              <p>Zagazig National University</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <div class="section-label">Get In Touch</div>
+          <h2>Let's work together.</h2>
+          <p class="contact-intro">
+            Have a project, opportunity, or question? Send me a message and
+            I'll get back to you by email.
+          </p>
+
+          <div class="contact-details">
+            <a href="mailto:3bdoahmed75@gmail.com">✉ 3bdoahmed75@gmail.com</a>
+            <a href="https://github.com/3bdelrhman8" target="_blank" rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+            <a href="https://www.linkedin.com/in/abdelrhman-ahmed-a03157372" target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>
+            Your Name
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </label>
+
+          <label>
+            Your Email
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Message
+            <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Abdelrahman. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Portfolio Contact - " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Message:\n" + message
+      );
+
+      window.location.href =
+        "mailto:3bdoahmed75@gmail.com?subject=" + subject + "&body=" + body;
+    });
+  </script>
+
+</body>
+</html>
