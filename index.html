@@ -1,0 +1,3365 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdelrahman Ahmed | Junior Data Engineer</title>
+    <meta name="description"
+        content="Junior Data Engineer specializing in ETL pipelines, SQL database optimization, web scraping, and scalable data architectures." />
+    <meta property="og:title" content="Abdelrahman Ahmed | Junior Data Engineer Portfolio" />
+    <meta property="og:description"
+        content="Transforming raw data into scalable ETL pipelines, optimized SQL warehouses, and automated data systems." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="profile.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abdelrahman Ahmed | Junior Data Engineer" />
+    <meta name="twitter:description" content="Data Engineering, ETL Pipelines, SQL Architecture, Python & PySpark." />
+    <meta name="twitter:image" content="profile.jpeg" />
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23030203'/%3E%3Cpath d='M32 58L10 45V39L32 52L54 39V45L32 58Z' fill='%23183032' stroke='%234F8A70' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M32 48L10 35V28L32 41L54 28V35L32 48Z' fill='%231E463C' stroke='%2378D86B' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M32 37L10 24L32 11L54 24L32 37Z' fill='%2391E74F' fill-opacity='0.22' stroke='%2391E74F' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M32 31L20 24L32 17L44 24L32 31Z' fill='%2391E74F'/%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neon: '#91E74F',
+                        neonDark: '#267A17',
+                        obsidian: '#030203',
+                        surface: '#0C0D0C',
+                        surfaceAlt: '#141614',
+                        borderDark: '#252823',
+                        offwhite: '#F2F0F2',
+                        muted: '#9B9899',
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Cairo', 'sans-serif'],
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Cairo', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #F8FAF7;
+            --bg-surface: #FFFFFF;
+            --bg-surface-alt: #F1F5EF;
+            --text-primary: #0F140E;
+            --text-muted: #525B50;
+            --border-color: #DCE3D9;
+            --accent: #2E8B1E;
+            --accent-glow: rgba(46, 139, 30, 0.25);
+            --electric-stroke: #2E8B1E;
+            --electric-track: rgba(46, 139, 30, 0.14);
+            --spotlight: rgba(46, 139, 30, 0.12);
+        }
+
+        html.dark {
+            --bg-primary: #030203;
+            --bg-surface: #0C0D0C;
+            --bg-surface-alt: #141614;
+            --text-primary: #F2F0F2;
+            --text-muted: #9B9899;
+            --border-color: #252823;
+            --accent: #91E74F;
+            --accent-glow: rgba(145, 231, 79, 0.38);
+            --electric-stroke: #91E74F;
+            --electric-track: rgba(145, 231, 79, 0.12);
+            --spotlight: rgba(145, 231, 79, 0.14);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', 'Cairo', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.35s ease, color 0.35s ease;
+        }
+
+        html[dir="rtl"] body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
+
+        body.preloader-active {
+            overflow: hidden;
+        }
+
+        .font-heading {
+            font-family: 'Space Grotesk', 'Cairo', sans-serif;
+        }
+
+        html[dir="rtl"] .font-heading {
+            font-family: 'Cairo', 'Space Grotesk', sans-serif;
+        }
+
+        html[dir="rtl"] .dir-arrow {
+            transform: scaleX(-1);
+        }
+
+        html[dir="rtl"] #toast-container {
+            right: auto;
+            left: 1.25rem;
+        }
+
+        html[dir="rtl"] #close-modal {
+            right: auto;
+            left: 1rem;
+        }
+
+        @media (pointer: fine) {
+
+            html.custom-cursor-ready,
+            html.custom-cursor-ready * {
+                cursor: none !important;
+            }
+        }
+
+        #cursor-dot,
+        #cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.25s ease, width 0.22s cubic-bezier(0.22, 1, 0.36, 1), height 0.22s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.22s ease, border-color 0.22s ease;
+            will-change: transform;
+        }
+
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent), 0 0 24px var(--accent-glow);
+        }
+
+        #cursor-ring {
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: 1.5px solid var(--accent);
+            background-color: transparent;
+            box-shadow: 0 0 16px -4px var(--accent-glow);
+        }
+
+        #cursor-ring.cursor-hover {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(145, 231, 79, 0.1);
+            border-color: var(--accent);
+            box-shadow: 0 0 24px -2px var(--accent-glow);
+        }
+
+        #cursor-dot.cursor-hover {
+            width: 5px;
+            height: 5px;
+        }
+
+        #cursor-ring.cursor-down {
+            width: 28px;
+            height: 28px;
+            background-color: rgba(145, 231, 79, 0.22);
+        }
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: #030203;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.65s cubic-bezier(0.77, 0, 0.175, 1), transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        #preloader.done {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        .preloader-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(145, 231, 79, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(145, 231, 79, 0.06) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+        }
+
+        .preloader-ring {
+            animation: spinSlow 6s linear infinite;
+        }
+
+        .preloader-ring-rev {
+            animation: spinSlowRev 4.5s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinSlowRev {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes scanLine {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .preloader-scan {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #91E74F, transparent);
+            box-shadow: 0 0 20px #91E74F;
+            animation: scanLine 2s ease-in-out infinite;
+        }
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            z-index: 60;
+            background: linear-gradient(90deg, #267A17, #91E74F, #d3ffad);
+            box-shadow: 0 0 12px var(--accent);
+            transition: width 0.08s linear;
+        }
+
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, rgba(145, 231, 79, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(145, 231, 79, 0.045) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        html:not(.dark) .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, rgba(46, 139, 30, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(46, 139, 30, 0.05) 1px, transparent 1px);
+        }
+
+        .electric-svg {
+            overflow: visible;
+        }
+
+        .electric-track {
+            fill: none;
+            stroke: var(--electric-track);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+        }
+
+        .electric-pulse {
+            fill: none;
+            stroke: var(--electric-stroke);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 14px var(--accent-glow));
+        }
+
+        .electric-pulse-fast {
+            stroke-dasharray: 90 520;
+            animation: flowPulse 3.2s linear infinite;
+        }
+
+        .electric-pulse-med {
+            stroke-dasharray: 120 600;
+            animation: flowPulse 4.4s linear infinite;
+        }
+
+        .electric-pulse-slow {
+            stroke-dasharray: 70 480;
+            animation: flowPulse 5.2s linear infinite;
+        }
+
+        .electric-pulse-reverse {
+            stroke-dasharray: 80 540;
+            animation: flowPulseReverse 3.8s linear infinite;
+        }
+
+        .delay-1 {
+            animation-delay: -0.8s;
+        }
+
+        .delay-2 {
+            animation-delay: -1.9s;
+        }
+
+        .delay-3 {
+            animation-delay: -2.7s;
+        }
+
+        .delay-4 {
+            animation-delay: -3.5s;
+        }
+
+        @keyframes flowPulse {
+            0% {
+                stroke-dashoffset: 620;
+                opacity: 0.2;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                stroke-dashoffset: -620;
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes flowPulseReverse {
+            0% {
+                stroke-dashoffset: -620;
+                opacity: 0.2;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                stroke-dashoffset: 620;
+                opacity: 0.2;
+            }
+        }
+
+        .portrait-glow {
+            box-shadow:
+                0 0 0 1px rgba(145, 231, 79, 0.35),
+                0 0 38px -4px rgba(145, 231, 79, 0.36),
+                0 25px 50px -12px rgba(0, 0, 0, 0.78);
+        }
+
+        html:not(.dark) .portrait-glow {
+            box-shadow:
+                0 0 0 2px rgba(46, 139, 30, 0.35),
+                0 0 30px -8px rgba(46, 139, 30, 0.25),
+                0 20px 40px -15px rgba(15, 20, 14, 0.18);
+        }
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes orbDrift {
+
+            0%,
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            50% {
+                transform: translate(24px, -18px) scale(1.08);
+            }
+        }
+
+        .animate-float-1 {
+            animation: floatSlow 4.2s ease-in-out infinite;
+        }
+
+        .animate-float-2 {
+            animation: floatSlow 5.1s ease-in-out infinite 0.7s;
+        }
+
+        .animate-float-3 {
+            animation: floatSlow 4.7s ease-in-out infinite 1.4s;
+        }
+
+        .animate-float-4 {
+            animation: floatSlow 5.5s ease-in-out infinite 2.1s;
+        }
+
+        .animate-orb {
+            animation: orbDrift 11s ease-in-out infinite;
+        }
+
+        .btn-neon {
+            background-color: #91E74F;
+            color: #030203;
+            box-shadow: 0 0 24px -4px rgba(145, 231, 79, 0.55);
+            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-neon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.38) 50%, transparent 80%);
+            transform: translateX(-120%);
+            transition: transform 0.65s ease;
+        }
+
+        .btn-neon:hover::after {
+            transform: translateX(120%);
+        }
+
+        .btn-neon:hover {
+            background-color: #a3ef68;
+            box-shadow: 0 0 34px -2px rgba(145, 231, 79, 0.8);
+            transform: translateY(-2px);
+        }
+
+        html:not(.dark) .btn-neon {
+            background-color: #267A17;
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px -6px rgba(38, 122, 23, 0.45);
+        }
+
+        html:not(.dark) .btn-neon:hover {
+            background-color: #1F6612;
+        }
+
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-style: preserve-3d;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--spotlight), transparent 65%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            border: 1px dashed var(--border-color);
+            background-color: var(--bg-surface);
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 34px -10px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+
+        .hero-stagger {
+            opacity: 0;
+            transform: translateY(26px);
+            filter: blur(6px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.75s ease;
+        }
+
+        body.hero-ready .hero-stagger {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        body.hero-ready .hero-stagger-1 {
+            transition-delay: 0.05s;
+        }
+
+        body.hero-ready .hero-stagger-2 {
+            transition-delay: 0.16s;
+        }
+
+        body.hero-ready .hero-stagger-3 {
+            transition-delay: 0.27s;
+        }
+
+        body.hero-ready .hero-stagger-4 {
+            transition-delay: 0.38s;
+        }
+
+        body.hero-ready .hero-stagger-5 {
+            transition-delay: 0.48s;
+        }
+
+        body.hero-ready .hero-stagger-6 {
+            transition-delay: 0.22s;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px) scale(0.985);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible,
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        .stagger-child {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .visible .stagger-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visible .stagger-child:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .visible .stagger-child:nth-child(2) {
+            transition-delay: 0.13s;
+        }
+
+        .visible .stagger-child:nth-child(3) {
+            transition-delay: 0.21s;
+        }
+
+        .visible .stagger-child:nth-child(4) {
+            transition-delay: 0.29s;
+        }
+
+        .visible .stagger-child:nth-child(5) {
+            transition-delay: 0.37s;
+        }
+
+        .visible .stagger-child:nth-child(6) {
+            transition-delay: 0.45s;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-wrap {
+            direction: ltr;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 28s linear infinite;
+        }
+
+        .marquee-wrap:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes caretBlink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .typing-caret {
+            display: inline-block;
+            width: 2px;
+            height: 1.05em;
+            background-color: var(--accent);
+            margin-inline-start: 3px;
+            vertical-align: -2px;
+            animation: caretBlink 0.9s infinite;
+        }
+
+        @keyframes panelFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-animate {
+            animation: panelFade 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            background-color: rgba(145, 231, 79, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            #preloader {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-neon selection:text-obsidian preloader-active">
+
+    <div id="scroll-progress"></div>
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <div id="preloader" role="status" aria-label="Loading portfolio">
+        <div class="preloader-grid"></div>
+        <div class="preloader-scan"></div>
+        <div class="relative z-10 flex flex-col items-center gap-6 px-6 text-center max-w-sm w-full">
+            <div class="relative w-28 h-28 flex items-center justify-center">
+                <svg class="preloader-ring absolute inset-0 w-full h-full" viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="54" stroke="rgba(145,231,79,0.22)" stroke-width="1.5"
+                        stroke-dasharray="6 8" />
+                    <path d="M60 6 A54 54 0 0 1 114 60" stroke="#91E74F" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <svg class="preloader-ring-rev absolute inset-3 w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)]"
+                    viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="44" stroke="rgba(145,231,79,0.16)" stroke-width="1" />
+                    <path d="M50 94 A44 44 0 0 1 6 50" stroke="#91E74F" stroke-width="2" stroke-linecap="round"
+                        opacity="0.85" />
+                </svg>
+                <div
+                    class="w-16 h-16 rounded-2xl overflow-hidden bg-obsidian border border-neon/60 shadow-[0_0_28px_-4px_rgba(145,231,79,0.65)] flex items-center justify-center">
+                    <svg class="w-11 h-11" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M32 58L10 45V39L32 52L54 39V45L32 58Z" fill="#183032" stroke="#4F8A70"
+                            stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M32 48L10 35V28L32 41L54 28V35L32 48Z" fill="#1E463C" stroke="#78D86B"
+                            stroke-width="1.6" stroke-linejoin="round" />
+                        <path d="M32 37L10 24L32 11L54 24L32 37Z" fill="#91E74F" fill-opacity="0.18" stroke="#91E74F"
+                            stroke-width="2" stroke-linejoin="round" />
+                        <path d="M32 31L20 24L32 17L44 24L32 31Z" fill="#91E74F" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <p class="font-heading text-xl font-bold tracking-tight text-offwhite">
+                    <span data-i18n="brandShort">Abdelrahman</span><span class="text-neon">.</span>
+                </p>
+                <p id="preloader-status" class="font-mono text-[11px] uppercase tracking-[0.2em] text-neon/90">
+                    INITIALIZING PIPELINE...
+                </p>
+            </div>
+
+            <div class="w-full space-y-2">
+                <div class="w-full h-1.5 rounded-full bg-[#141614] border border-[#252823] overflow-hidden">
+                    <div id="preloader-bar"
+                        class="h-full w-0 bg-gradient-to-r from-[#267A17] via-[#91E74F] to-[#d5ffb2] shadow-[0_0_14px_#91E74F] transition-all duration-150">
+                    </div>
+                </div>
+                <div class="flex items-center justify-between font-mono text-[10px] text-[#9B9899]" dir="ltr">
+                    <span>DATA_ENGINEER.EXE</span>
+                    <span id="preloader-percent" class="text-neon">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <div id="credential-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+        <div
+            class="w-full max-w-lg rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] p-6 shadow-2xl relative animate-modal">
+            <button id="close-modal"
+                class="absolute top-4 right-4 p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-alt)] transition"
+                aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-neon/10 text-neonDark dark:text-neon border border-neon/25 mb-3">
+                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                <span id="modal-issuer">Issuer</span>
+            </div>
+            <h3 id="modal-title" class="font-heading text-xl font-bold mb-2">Certificate Title</h3>
+            <p id="modal-desc" class="text-sm text-[var(--text-muted)] mb-5 leading-relaxed">Details</p>
+            <div
+                class="rounded-xl border border-dashed border-[var(--border-color)] bg-[var(--bg-surface-alt)] p-4 flex items-center justify-between gap-3 mb-5">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8 text-neonDark dark:text-neon shrink-0" fill="none" stroke="currentColor"
+                        stroke-width="1.6" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63 2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                    <div>
+                        <p id="modal-date" class="text-xs font-mono font-bold text-neonDark dark:text-neon">Verified
+                            Program</p>
+                        <p class="text-xs text-[var(--text-muted)]" data-i18n="modalVerifiedNote">Official training record documented on LinkedIn
+                            &amp; CV.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end gap-2.5">
+                <a href="https://www.linkedin.com/in/3bdelrahman-essa/" target="_blank" rel="noopener noreferrer"
+                    class="px-4 py-2 rounded-xl text-xs font-semibold border border-[var(--border-color)] bg-[var(--bg-surface-alt)] hover:border-neonDark dark:hover:border-neon transition"
+                    data-i18n="modalViewLinkedin">View
+                    on LinkedIn</a>
+                <button id="modal-ok" class="btn-neon px-5 py-2 rounded-xl text-xs font-bold"
+                    data-i18n="modalDone">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-[var(--bg-primary)]/80 border-b border-[var(--border-color)]">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <a href="#home" class="flex items-center gap-2.5 group shrink-0">
+                <div
+                    class="w-10 h-10 rounded-xl overflow-hidden bg-obsidian border border-neon/50 shadow-[0_0_16px_-3px_rgba(145,231,79,0.5)] flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition duration-300">
+                    <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M32 58L10 45V39L32 52L54 39V45L32 58Z" fill="#183032" stroke="#4F8A70"
+                            stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M32 48L10 35V28L32 41L54 28V35L32 48Z" fill="#1E463C" stroke="#78D86B"
+                            stroke-width="1.6" stroke-linejoin="round" />
+                        <path d="M32 37L10 24L32 11L54 24L32 37Z" fill="#91E74F" fill-opacity="0.18" stroke="#91E74F"
+                            stroke-width="2" stroke-linejoin="round" />
+                        <path d="M32 31L20 24L32 17L44 24L32 31Z" fill="#91E74F" />
+                        <circle cx="21" cy="39" r="1.4" fill="#91E74F" />
+                        <circle cx="43" cy="39" r="1.4" fill="#91E74F" />
+                    </svg>
+                </div>
+                <span class="font-heading font-bold text-base tracking-tight">
+                    <span data-i18n="brandShort">Abdelrahman</span><span class="text-neonDark dark:text-neon">.</span>
+                </span>
+            </a>
+
+            <div
+                class="hidden xl:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs font-medium">
+                <a href="#home"
+                    class="nav-link active px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navHome">Home</a>
+                <a href="#about"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navAbout">About</a>
+                <a href="#education"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navEducation">Education</a>
+                <a href="#skills"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navSkills">Skills</a>
+                <a href="#experience"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navExperience">Experience</a>
+                <a href="#services"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navServices">Services</a>
+                <a href="#projects"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navProjects">Projects</a>
+                <a href="#contact"
+                    class="nav-link px-3 py-1.5 rounded-full hover:text-neonDark dark:hover:text-neon transition"
+                    data-i18n="navContact">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-neonDark dark:hover:border-neon transition"
+                    aria-label="Toggle Light/Dark Mode" title="Toggle Theme">
+                    <svg class="w-4 h-4 text-neon hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-neonDark block dark:hidden" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </button>
+
+                <button id="lang-toggle" type="button"
+                    class="px-3 py-2 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-neonDark dark:hover:border-neon font-mono text-xs font-bold text-neonDark dark:text-neon transition"
+                    aria-label="Switch Language" title="Switch Language">
+                    AR
+                </button>
+
+                <a href="#contact"
+                    class="magnetic-btn hidden sm:inline-flex items-center gap-1.5 btn-neon px-4 py-2 rounded-xl text-xs font-bold">
+                    <span data-i18n="navConnect">Connect Me</span>
+                    <svg class="w-3.5 h-3.5 dir-arrow" fill="none" stroke="currentColor" stroke-width="2.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
+
+                <button id="mobile-menu-btn"
+                    class="xl:hidden p-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)]"
+                    aria-label="Open menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu"
+            class="hidden xl:hidden border-t border-[var(--border-color)] bg-[var(--bg-surface)] px-4 py-4">
+            <div class="grid grid-cols-2 gap-2 text-sm font-medium">
+                <a href="#home" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navHome">Home</a>
+                <a href="#about" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navAbout">About</a>
+                <a href="#education" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navEducation">Education</a>
+                <a href="#skills" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navSkills">Skills</a>
+                <a href="#experience" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navExperience">Experience</a>
+                <a href="#services" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navServices">Services</a>
+                <a href="#projects" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navProjects">Projects</a>
+                <a href="#contact" class="mobile-nav-link px-3 py-2.5 rounded-xl hover:bg-[var(--bg-surface-alt)]"
+                    data-i18n="navContact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home"
+            class="relative min-h-[calc(100vh-4rem)] flex items-center bg-grid-pattern overflow-hidden py-14 lg:py-20">
+            <canvas id="hero-particles" class="pointer-events-none absolute inset-0 w-full h-full opacity-70"></canvas>
+            <div
+                class="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-neon/10 blur-[130px] animate-orb">
+            </div>
+            <div
+                class="pointer-events-none absolute bottom-0 left-0 w-[340px] h-[340px] rounded-full bg-neon/5 blur-[110px]">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                    <div class="lg:col-span-6 space-y-6 text-center lg:text-start">
+                        <div
+                            class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs font-mono font-semibold tracking-wider text-neonDark dark:text-neon">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-neonDark dark:bg-neon"></span>
+                            </span>
+                            <span data-i18n="heroHello">&gt; HELLO, I'M</span>
+                        </div>
+
+                        <div class="hero-stagger hero-stagger-2 space-y-3">
+                            <h1
+                                class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.06]">
+                                <span data-i18n="heroFirstName">Abdelrahman</span> <span
+                                    class="text-neonDark dark:text-neon" data-i18n="heroLastName">Ahmed</span>
+                            </h1>
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-neon/10 border border-neon/30 text-neonDark dark:text-neon font-heading font-semibold text-sm sm:text-base">
+                                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                                </svg>
+                                <span id="typed-role">Junior Data Engineer</span><span class="typing-caret"></span>
+                            </div>
+                        </div>
+
+                        <p class="hero-stagger hero-stagger-3 text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto lg:mx-0 leading-relaxed"
+                            data-i18n="heroSubtitle">
+                            Engineering reliable ETL pipelines, optimized SQL databases, and scalable data architectures
+                            using Python, SQL, PySpark, and Web Scraping.
+                        </p>
+
+                        <div
+                            class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+                            <a href="#projects"
+                                class="magnetic-btn btn-neon px-6 py-3.5 rounded-xl font-bold text-sm inline-flex items-center gap-2">
+                                <span data-i18n="heroViewWork">View My Work</span>
+                                <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+
+                            <a href="cv.pdf" download="Abdelrahman_Ahmed_CV.pdf" target="_blank"
+                                rel="noopener noreferrer" id="download-cv-btn"
+                                class="magnetic-btn px-6 py-3.5 rounded-xl font-semibold text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-neonDark dark:hover:border-neon hover:text-neonDark dark:hover:text-neon transition inline-flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                </svg>
+                                <span data-i18n="heroDownloadCv">Download CV</span>
+                            </a>
+                        </div>
+
+                        <div
+                            class="hero-stagger hero-stagger-5 pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[var(--text-muted)]">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                <span data-i18n="heroStatus1">Available for Freelance &amp; Data Roles</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                <span data-i18n="heroStatus2">Cairo, Egypt • DEPI Trainee</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="hero-stagger hero-stagger-6 lg:col-span-6 relative flex items-center justify-center py-8 sm:py-12">
+                        <div class="absolute inset-0 -mx-6 sm:-mx-12 flex items-center justify-center pointer-events-none select-none"
+                            aria-hidden="true">
+                            <svg class="electric-svg w-full h-[380px] sm:h-[440px]" viewBox="0 0 640 440"
+                                preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+                                        <feGaussianBlur stdDeviation="4" result="blur" />
+                                        <feMerge>
+                                            <feMergeNode in="blur" />
+                                            <feMergeNode in="SourceGraphic" />
+                                        </feMerge>
+                                    </filter>
+                                    <radialGradient id="spark-grad">
+                                        <stop offset="0%" stop-color="#ffffff" />
+                                        <stop offset="45%" stop-color="#91E74F" />
+                                        <stop offset="100%" stop-color="#91E74F" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+
+                                <path class="electric-track"
+                                    d="M 10 95 L 125 95 C 165 95, 180 145, 225 145 L 415 145 C 460 145, 480 85, 530 85 L 630 85" />
+                                <path class="electric-track"
+                                    d="M 0 165 L 140 165 C 175 165, 195 190, 235 190 L 420 190 C 460 190, 485 155, 525 155 L 640 155" />
+                                <path class="electric-track" d="M 15 225 L 625 225" />
+                                <path class="electric-track"
+                                    d="M 0 290 L 135 290 C 175 290, 195 255, 235 255 L 415 255 C 455 255, 485 300, 535 300 L 640 300" />
+                                <path class="electric-track"
+                                    d="M 20 355 L 145 355 C 185 355, 205 305, 250 305 L 400 305 C 450 305, 470 360, 520 360 L 625 360" />
+
+                                <path class="electric-pulse electric-pulse-fast"
+                                    d="M 10 95 L 125 95 C 165 95, 180 145, 225 145 L 415 145 C 460 145, 480 85, 530 85 L 630 85" />
+                                <path class="electric-pulse electric-pulse-med delay-1"
+                                    d="M 0 165 L 140 165 C 175 165, 195 190, 235 190 L 420 190 C 460 190, 485 155, 525 155 L 640 155" />
+                                <path class="electric-pulse electric-pulse-reverse delay-2" d="M 15 225 L 625 225" />
+                                <path class="electric-pulse electric-pulse-fast delay-3"
+                                    d="M 0 290 L 135 290 C 175 290, 195 255, 235 255 L 415 255 C 455 255, 485 300, 535 300 L 640 300" />
+                                <path class="electric-pulse electric-pulse-slow delay-4"
+                                    d="M 20 355 L 145 355 C 185 355, 205 305, 250 305 L 400 305 C 450 305, 470 360, 520 360 L 625 360" />
+
+                                <circle r="4.5" fill="url(#spark-grad)" filter="url(#neon-glow)">
+                                    <animateMotion dur="3.2s" repeatCount="indefinite"
+                                        path="M 10 95 L 125 95 C 165 95, 180 145, 225 145 L 415 145 C 460 145, 480 85, 530 85 L 630 85" />
+                                </circle>
+                                <circle r="4" fill="url(#spark-grad)" filter="url(#neon-glow)">
+                                    <animateMotion dur="4.2s" begin="0.9s" repeatCount="indefinite"
+                                        path="M 0 165 L 140 165 C 175 165, 195 190, 235 190 L 420 190 C 460 190, 485 155, 525 155 L 640 155" />
+                                </circle>
+                                <circle r="5" fill="url(#spark-grad)" filter="url(#neon-glow)">
+                                    <animateMotion dur="3.6s" begin="0.4s" repeatCount="indefinite"
+                                        path="M 625 225 L 15 225" />
+                                </circle>
+                                <circle r="4.5" fill="url(#spark-grad)" filter="url(#neon-glow)">
+                                    <animateMotion dur="3.4s" begin="1.4s" repeatCount="indefinite"
+                                        path="M 0 290 L 135 290 C 175 290, 195 255, 235 255 L 415 255 C 455 255, 485 300, 535 300 L 640 300" />
+                                </circle>
+                                <circle r="4" fill="url(#spark-grad)" filter="url(#neon-glow)">
+                                    <animateMotion dur="4.8s" begin="2.1s" repeatCount="indefinite"
+                                        path="M 20 355 L 145 355 C 185 355, 205 305, 250 305 L 400 305 C 450 305, 470 360, 520 360 L 625 360" />
+                                </circle>
+
+                                <circle cx="10" cy="95" r="3" fill="var(--accent)" opacity="0.7" />
+                                <circle cx="630" cy="85" r="3" fill="var(--accent)" opacity="0.7" />
+                                <circle cx="15" cy="225" r="3" fill="var(--accent)" opacity="0.7" />
+                                <circle cx="625" cy="225" r="3" fill="var(--accent)" opacity="0.7" />
+                                <circle cx="20" cy="355" r="3" fill="var(--accent)" opacity="0.7" />
+                                <circle cx="625" cy="360" r="3" fill="var(--accent)" opacity="0.7" />
+                            </svg>
+                        </div>
+
+                        <div class="tilt-card relative z-10 w-[265px] sm:w-[310px] aspect-[4/5]">
+                            <div class="absolute -inset-2.5 rounded-[2rem] border border-neon/25 pointer-events-none">
+                            </div>
+                            <div
+                                class="absolute -top-3 -left-3 w-7 h-7 border-t-2 border-l-2 border-neonDark dark:border-neon rounded-tl-xl pointer-events-none">
+                            </div>
+                            <div
+                                class="absolute -bottom-3 -right-3 w-7 h-7 border-b-2 border-r-2 border-neonDark dark:border-neon rounded-br-xl pointer-events-none">
+                            </div>
+
+                            <div
+                                class="relative w-full h-full rounded-[1.75rem] overflow-hidden bg-[#0C0D0C] portrait-glow group">
+                                <img id="profile-photo-img" src="profile.jpeg"
+                                    alt="Abdelrahman Ahmed - Junior Data Engineer"
+                                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                                    onerror="this.classList.add('hidden'); document.getElementById('profile-placeholder').classList.remove('hidden');" />
+
+                                <div
+                                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#030203]/75 via-transparent to-[#030203]/15">
+                                </div>
+                                <div
+                                    class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-neon/25 rounded-[1.75rem]">
+                                </div>
+
+                                <div id="profile-placeholder"
+                                    class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-[#111510] via-[#0b0e0a] to-[#050605] p-6 text-center relative">
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(145,231,79,0.16),transparent_65%)]">
+                                    </div>
+                                    <svg class="w-32 h-32 text-neon/85 relative z-10 mb-3" viewBox="0 0 160 160"
+                                        fill="none">
+                                        <circle cx="80" cy="80" r="72" stroke="currentColor" stroke-width="1.2"
+                                            stroke-dasharray="4 6" opacity="0.45" />
+                                        <circle cx="80" cy="58" r="24" fill="currentColor" fill-opacity="0.16"
+                                            stroke="currentColor" stroke-width="2" />
+                                        <path d="M36 132C39 106 56 94 80 94C104 94 121 106 124 132" fill="currentColor"
+                                            fill-opacity="0.12" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                    <span
+                                        class="relative z-10 text-xs font-mono text-neon/90 tracking-wider uppercase"
+                                        data-i18n="fullName">Abdelrahman
+                                        Ahmed</span>
+                                    <span class="relative z-10 text-[11px] text-[#9B9899] mt-1"
+                                        data-i18n="primaryRole">Junior Data
+                                        Engineer</span>
+                                </div>
+                            </div>
+
+                            <div dir="ltr"
+                                class="animate-float-1 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--bg-surface)]/90 backdrop-blur-md border border-[var(--border-color)] shadow-lg absolute -top-4 -left-10 text-xs font-mono font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                Python
+                            </div>
+                            <div dir="ltr"
+                                class="animate-float-2 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--bg-surface)]/90 backdrop-blur-md border border-[var(--border-color)] shadow-lg absolute top-14 -right-12 text-xs font-mono font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                SQL • dbt
+                            </div>
+                            <div dir="ltr"
+                                class="animate-float-3 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--bg-surface)]/90 backdrop-blur-md border border-[var(--border-color)] shadow-lg absolute bottom-20 -left-14 text-xs font-mono font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                ETL • APIs
+                            </div>
+                            <div dir="ltr"
+                                class="animate-float-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--bg-surface)]/90 backdrop-blur-md border border-[var(--border-color)] shadow-lg absolute -bottom-4 -right-10 text-xs font-mono font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon"></span>
+                                PySpark
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee-wrap border-y border-[var(--border-color)] bg-[var(--bg-surface)]/70 py-4 overflow-hidden">
+            <div
+                class="marquee-track flex items-center gap-8 text-xs font-mono font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Python</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqSqlOpt">SQL Optimization</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqEtl">ETL / ELT Pipelines</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>PostgreSQL</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>MySQL</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>PySpark</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>dbt</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqScraping">Web Scraping</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>REST APIs</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Pandas &amp; NumPy</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Docker</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Scikit-Learn</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Python</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqSqlOpt">SQL Optimization</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqEtl">ETL / ELT Pipelines</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>PostgreSQL</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>MySQL</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>PySpark</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>dbt</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span><span
+                        data-i18n="mqScraping">Web Scraping</span></span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>REST APIs</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Pandas &amp; NumPy</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Docker</span>
+                <span class="flex items-center gap-2.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-neonDark dark:bg-neon"></span>Scikit-Learn</span>
+            </div>
+        </div>
+
+        <section id="about" class="py-20 lg:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+                    <div class="lg:col-span-12 max-w-4xl space-y-5 reveal-left">
+                        <div
+                            class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest">
+                            <span>01</span><span>/</span><span data-i18n="aboutKicker">About Me</span>
+                        </div>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight"
+                            data-i18n="aboutTitle">
+                            Transforming Raw Data Into Meaningful, Scalable Solutions.
+                        </h2>
+
+                        <div class="space-y-4 text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
+                            <p class="p-4 rounded-2xl bg-neon/5 border border-neon/20 text-[var(--text-primary)]"
+                                data-i18n="aboutP1">
+                                Computer Science student and aspiring Data Engineer specializing in database
+                                optimization, ETL pipelines, and scalable data architecture. My academic journey at
+                                Zagazig National University has built a strong foundation in algorithms, databases, and
+                                machine learning, while my training in the Microsoft Data Engineer track (DEPI) hones my
+                                hands-on expertise in modern data systems.
+                            </p>
+                            <p data-i18n="aboutP2">
+                                From automated web scraping pipelines and relational data warehouses to predictive
+                                modeling workflows, I thrive on solving complex engineering challenges using Python,
+                                SQL, PySpark, and dbt. I am actively looking forward to collaborating on impactful data
+                                engineering projects and growing within innovative teams.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div
+                                class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-4 text-center">
+                                <p class="font-heading text-2xl sm:text-3xl font-bold text-neonDark dark:text-neon"
+                                    dir="ltr">
+                                    <span class="counter" data-target="4">0</span>+
+                                </p>
+                                <p class="text-[11px] font-mono text-[var(--text-muted)] mt-1"
+                                    data-i18n="statProjects">Data Projects</p>
+                            </div>
+                            <div
+                                class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-4 text-center">
+                                <p class="font-heading text-2xl sm:text-3xl font-bold text-neonDark dark:text-neon"
+                                    dir="ltr">
+                                    <span class="counter" data-target="3" data-decimal="true">0</span>
+                                </p>
+                                <p class="text-[11px] font-mono text-[var(--text-muted)] mt-1" data-i18n="statGpa">GPA
+                                    Score</p>
+                            </div>
+                            <div
+                                class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-4 text-center">
+                                <p class="font-heading text-2xl sm:text-3xl font-bold text-neonDark dark:text-neon"
+                                    dir="ltr">
+                                    <span class="counter" data-target="3">0</span>
+                                </p>
+                                <p class="text-[11px] font-mono text-[var(--text-muted)] mt-1" data-i18n="statCerts">
+                                    Programs &amp; Certs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="education"
+            class="py-20 lg:py-28 border-t border-[var(--border-color)] bg-[var(--bg-surface-alt)]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                        <span>02</span><span>/</span><span data-i18n="eduKicker">Education &amp; Certifications</span>
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="eduTitle">
+                        Academic Foundation &amp; Industry Credentials
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 reveal">
+                    <div
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-7 flex flex-col justify-between space-y-5">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-neon/10 text-neonDark dark:text-neon border border-neon/25"
+                                    data-i18n="edu1Badge">B.Sc.
+                                    Computer Science</span>
+                                <span class="text-xs font-mono text-[var(--text-muted)]" data-i18n="edu1Date">Oct 2023 –
+                                    Present</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <img src="znu-logo.jpg" alt="Zagazig National University logo" width="64" height="64"
+                                    class="w-16 h-16 rounded-full object-cover bg-white p-0.5 shadow-[0_0_18px_-4px_var(--accent-glow)] shrink-0" />
+                                <h3 class="font-heading text-xl font-bold" data-i18n="edu1Title">Zagazig National University
+                                </h3>
+                            </div>
+                            <p class="text-sm text-[var(--text-muted)]" data-i18n="edu1Sub">10th of Ramadan •
+                                Specialization: Artificial
+                                Intelligence • GPA: 3.0</p>
+                        </div>
+                        <div class="space-y-2.5 text-sm border-t border-[var(--border-color)] pt-4">
+                            <p><span class="font-semibold" data-i18n="edu1FocusLbl">Core Focus:</span> <span
+                                    class="text-[var(--text-muted)]" data-i18n="edu1FocusVal">Data Engineering, Database
+                                    Systems, Algorithm
+                                    Design, Machine Learning, and Parallel Computing (OpenMP).</span></p>
+                            <p><span class="font-semibold" data-i18n="edu1MileLbl">Milestone:</span> <span
+                                    class="text-[var(--text-muted)]" data-i18n="edu1MileVal">Selected for the Microsoft
+                                    Data Engineer path under
+                                    DEPI.</span></p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-7 flex flex-col justify-between space-y-5">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-neon/10 text-neonDark dark:text-neon border border-neon/25"
+                                    data-i18n="edu2Badge">In
+                                    Progress • MCIT</span>
+                                <span class="text-xs font-mono text-[var(--text-muted)]" data-i18n="edu2Date">Jul 2026 –
+                                    Present</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold" data-i18n="edu2Title">Digital Egypt Pioneers
+                                Initiative (DEPI)</h3>
+                            <p class="text-sm font-medium text-neonDark dark:text-neon" data-i18n="edu2Sub">Microsoft
+                                Data Engineer Track
+                            </p>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="edu2Desc">
+                                Intensive training covering modern Microsoft data architecture, cloud solutions,
+                                automated ETL pipelines, SQL optimization, and scalable warehousing.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <button
+                                class="view-cred-btn inline-flex items-center gap-2 text-xs font-bold text-neonDark dark:text-neon hover:underline"
+                                data-cred-key="depi">
+                                <span data-i18n="eduViewProg">View Program Details</span>
+                                <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[var(--bg-surface-alt)] text-neonDark dark:text-neon border border-[var(--border-color)]"
+                                    data-i18n="eduCertBadge">Certificate</span>
+                                <span class="text-xs font-mono text-[var(--text-muted)]">2026</span>
+                            </div>
+                            <h3 class="font-heading text-lg font-bold" data-i18n="edu3Title">Build with AI: Masr Edition
+                            </h3>
+                            <p class="text-xs font-medium text-neonDark dark:text-neon" data-i18n="edu3Sub">Google for
+                                Developers &amp; ITI
+                            </p>
+                            <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="edu3Desc">
+                                Hands-on developer training focused on building applied AI workflows and integrating
+                                modern cloud and developer tools.
+                            </p>
+                        </div>
+                        <div>
+                            <button
+                                class="view-cred-btn inline-flex items-center gap-2 text-xs font-bold text-neonDark dark:text-neon hover:underline"
+                                data-cred-key="buildai">
+                                <span data-i18n="eduViewCred">View Credential Details</span>
+                                <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[var(--bg-surface-alt)] text-neonDark dark:text-neon border border-[var(--border-color)]"
+                                    data-i18n="eduCertBadge">Certificate</span>
+                                <span class="text-xs font-mono text-[var(--text-muted)]" data-i18n="edu4Date">May
+                                    2025</span>
+                            </div>
+                            <h3 class="font-heading text-lg font-bold" data-i18n="edu4Title">Sprints x Microsoft Summer
+                                Camp</h3>
+                            <p class="text-xs font-medium text-neonDark dark:text-neon" data-i18n="edu4Sub">AI &amp;
+                                Machine Learning Track
+                            </p>
+                            <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="edu4Desc">
+                                Practical training in Python data preprocessing, machine learning pipelines, and applied
+                                predictive modeling with Sprints and Microsoft.
+                            </p>
+                        </div>
+                        <div>
+                            <button
+                                class="view-cred-btn inline-flex items-center gap-2 text-xs font-bold text-neonDark dark:text-neon hover:underline"
+                                data-cred-key="sprints">
+                                <span data-i18n="eduViewCred">View Credential Details</span>
+                                <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 lg:py-28 border-t border-[var(--border-color)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal mb-10">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                        <span>03</span><span>/</span><span data-i18n="skillsKicker">Technical Toolkit</span>
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="skillsTitle">
+                        Skills Grouped by Workflow
+                    </h2>
+                </div>
+
+                <div class="reveal space-y-6">
+                    <div class="flex flex-wrap gap-2.5">
+                        <button
+                            class="skill-tab active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-neonDark dark:border-neon bg-neon/15 text-neonDark dark:text-neon transition"
+                            data-tab="de" data-i18n="tabDe">
+                            Data Engineering &amp; Pipelines
+                        </button>
+                        <button
+                            class="skill-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                            data-tab="db" data-i18n="tabDb">
+                            Databases &amp; Tools
+                        </button>
+                        <button
+                            class="skill-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                            data-tab="ml" data-i18n="tabMl">
+                            Programming &amp; Machine Learning
+                        </button>
+                    </div>
+
+                    <div id="skill-panel"
+                        class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 sm:p-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience"
+            class="py-20 lg:py-28 border-t border-[var(--border-color)] bg-[var(--bg-surface-alt)]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                        <span>04</span><span>/</span><span data-i18n="expKicker">Experience</span>
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="expTitle">
+                        Hands-On Engineering &amp; Training
+                    </h2>
+                </div>
+
+                <div
+                    class="reveal spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 sm:p-8 space-y-6">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[var(--border-color)]">
+                        <div>
+                            <div
+                                class="inline-flex items-center gap-2 text-xs font-mono text-neonDark dark:text-neon mb-1">
+                                <span data-i18n="expDate">JULY 2026 – PRESENT</span>
+                                <span>•</span>
+                                <span data-i18n="expLoc">Cairo, Egypt • Intensive Track</span>
+                            </div>
+                            <h3 class="font-heading text-xl sm:text-2xl font-bold" data-i18n="expRole">Data Engineering
+                                Trainee</h3>
+                            <p class="text-sm text-[var(--text-muted)]" data-i18n="expOrg">Digital Egypt Pioneers
+                                Initiative (DEPI) —
+                                Microsoft Data Engineer Track</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span
+                                class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Python</span>
+                            <span
+                                class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">SQL</span>
+                            <span
+                                class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">PostgreSQL</span>
+                            <span
+                                class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">dbt</span>
+                            <span
+                                class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">ETL</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="stagger-child p-5 rounded-xl bg-red-500/5 border border-red-500/20 space-y-2">
+                            <span
+                                class="text-xs font-mono font-bold uppercase tracking-wider text-red-500 dark:text-red-400"
+                                data-i18n="carChallenge">Challenge</span>
+                            <p class="text-[var(--text-muted)] leading-relaxed" data-i18n="expChallengeText">
+                                Designing production-grade data architectures capable of ingesting, validating, and
+                                transforming large multi-table datasets into clean analytical schemas.
+                            </p>
+                        </div>
+
+                        <div class="stagger-child p-5 rounded-xl bg-sky-500/5 border border-sky-500/20 space-y-2">
+                            <span
+                                class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400"
+                                data-i18n="carAction">Action</span>
+                            <ul class="text-[var(--text-muted)] space-y-1.5 list-disc list-inside leading-relaxed">
+                                <li data-i18n="expAction1">Engineered end-to-end ETL pipelines in Python, SQL, and dbt.
+                                </li>
+                                <li data-i18n="expAction2">Designed normalized and Star Schema warehouses in PostgreSQL.
+                                </li>
+                                <li data-i18n="expAction3">Applied algorithmic problem-solving to optimize query and
+                                    workflow performance.</li>
+                            </ul>
+                        </div>
+
+                        <div class="stagger-child p-5 rounded-xl bg-neon/5 border border-neon/25 space-y-2">
+                            <span
+                                class="text-xs font-mono font-bold uppercase tracking-wider text-neonDark dark:text-neon"
+                                data-i18n="carResult">Result</span>
+                            <p class="text-[var(--text-muted)] leading-relaxed" data-i18n="expResultText">
+                                Delivered repeatable, modular data pipelines and analytics-ready warehouses that
+                                eliminate manual data cleaning and speed up downstream analysis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 lg:py-28 border-t border-[var(--border-color)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                        <span>05</span><span>/</span><span data-i18n="srvKicker">Services</span>
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="srvTitle">
+                        How I Help Projects Scale with Clean Data
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <div class="stagger-child spotlight-card tilt-card service-card rounded-2xl p-6 space-y-4">
+                        <div
+                            class="w-11 h-11 rounded-xl bg-neon/10 border border-neon/25 flex items-center justify-center text-neonDark dark:text-neon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold" data-i18n="srv1Title">ETL &amp; Data Pipeline
+                            Engineering</h3>
+                        <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="srv1Desc">
+                            Automated Python, SQL, and PySpark pipelines that extract, clean, validate, and load data
+                            reliably from APIs, CSVs, and applications.
+                        </p>
+                        <div class="space-y-2 pt-2 border-t border-[var(--border-color)] text-xs">
+                            <p><span class="font-bold text-[var(--text-primary)]" data-i18n="lblProblem">Problem:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv1Prob">Hours wasted manually
+                                    cleaning inconsistent files
+                                    and broken spreadsheets.</span></p>
+                            <p><span class="font-bold text-neonDark dark:text-neon" data-i18n="lblResult">Result:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv1Res">Automated, repeatable
+                                    pipelines delivering
+                                    structured data on schedule.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="stagger-child spotlight-card tilt-card service-card rounded-2xl p-6 space-y-4">
+                        <div
+                            class="w-11 h-11 rounded-xl bg-neon/10 border border-neon/25 flex items-center justify-center text-neonDark dark:text-neon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" />
+                            </svg>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold" data-i18n="srv2Title">SQL &amp; Database Optimization
+                        </h3>
+                        <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="srv2Desc">
+                            Relational schema modeling, Star Schema data warehouses, dbt transformations, and tuned
+                            PostgreSQL/MySQL queries built for speed.
+                        </p>
+                        <div class="space-y-2 pt-2 border-t border-[var(--border-color)] text-xs">
+                            <p><span class="font-bold text-[var(--text-primary)]" data-i18n="lblProblem">Problem:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv2Prob">Slow queries, duplicate
+                                    records, and unindexed
+                                    tables slowing down analytics.</span></p>
+                            <p><span class="font-bold text-neonDark dark:text-neon" data-i18n="lblResult">Result:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv2Res">Clean, fast single source of
+                                    truth built to scale
+                                    cleanly.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="stagger-child spotlight-card tilt-card service-card rounded-2xl p-6 space-y-4">
+                        <div
+                            class="w-11 h-11 rounded-xl bg-neon/10 border border-neon/25 flex items-center justify-center text-neonDark dark:text-neon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" />
+                            </svg>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold" data-i18n="srv3Title">Web Scraping &amp; API
+                            Integration</h3>
+                        <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed" data-i18n="srv3Desc">
+                            Custom Python scrapers and REST API connectors that gather real-time market data, clean it,
+                            and load it directly into databases or dashboards.
+                        </p>
+                        <div class="space-y-2 pt-2 border-t border-[var(--border-color)] text-xs">
+                            <p><span class="font-bold text-[var(--text-primary)]" data-i18n="lblProblem">Problem:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv3Prob">Valuable market listings and
+                                    pricing signals
+                                    scattered across web pages.</span></p>
+                            <p><span class="font-bold text-neonDark dark:text-neon" data-i18n="lblResult">Result:</span>
+                                <span class="text-[var(--text-muted)]" data-i18n="srv3Res">Structured, searchable
+                                    datasets ready for tracking
+                                    and modeling.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects"
+            class="py-20 lg:py-28 border-t border-[var(--border-color)] bg-[var(--bg-surface-alt)]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                            <span>06</span><span>/</span><span data-i18n="projKicker">Featured Projects</span>
+                        </div>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="projTitle">
+                            Real Data Pipelines &amp; Engineering Builds
+                        </h2>
+                    </div>
+                    <a href="https://github.com/3bdelrhman8" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon hover:underline">
+                        <span data-i18n="projExploreAll">Explore All Repositories</span>
+                        <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 reveal">
+
+                    <article
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden flex flex-col justify-between hover:border-neonDark/60 dark:hover:border-neon/60">
+                        <div>
+                            <div
+                                class="p-5 bg-gradient-to-br from-[#0e130d] to-[#060806] border-b border-[var(--border-color)]">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-neon/15 text-neon border border-neon/30"
+                                        data-i18n="p1Badge">FEATURED
+                                        • DEPI</span>
+                                    <span class="text-[11px] font-mono text-[#9B9899]" data-i18n="p1Cat">Data
+                                        Engineering</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between gap-1.5 text-[10px] font-mono text-[#F2F0F2]">
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p1Step1">
+                                        Raw Datasets</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-neon/10 border border-neon/40 text-neon text-center flex-1"
+                                        data-i18n="p1Step2">
+                                        Python &amp; SQL ETL</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p1Step3">
+                                        Data Warehouse</div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div>
+                                    <h3 class="font-heading text-lg font-bold mb-1" data-i18n="p1Title">DEPI Data
+                                        Engineer Project</h3>
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="p1Sub">End-to-end ETL
+                                        architecture, data
+                                        modeling, and analytical warehousing built for the Microsoft Data Engineer
+                                        track.</p>
+                                </div>
+
+                                <div class="space-y-2 text-xs">
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblProblem">Problem:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p1Prob"> Multi-source
+                                            operational datasets with
+                                            inconsistent keys and missing values prevented reliable analytical
+                                            querying.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblSolution">Solution:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p1Sol"> Built a modular
+                                            extraction,
+                                            transformation, and loading workflow into a structured SQL warehouse with
+                                            validation rules.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-neon/5 border border-neon/20">
+                                        <span class="font-bold text-neonDark dark:text-neon"
+                                            data-i18n="lblResult">Result:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p1Res"> Delivered a clean,
+                                            reproducible data
+                                            model ready for fast analytical queries and business metrics.</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Python</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">SQL</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">ETL</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]"
+                                        data-i18n="pillDwh">Data
+                                        Warehousing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 flex items-center gap-2.5">
+                            <a href="https://github.com/3bdelrhman8/DEPI-Data-Engineer-Project" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-neon flex-1 py-2.5 px-3 rounded-xl text-xs font-bold text-center"
+                                data-i18n="btnViewGithub">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden flex flex-col justify-between hover:border-neonDark/60 dark:hover:border-neon/60">
+                        <div>
+                            <div
+                                class="p-5 bg-gradient-to-br from-[#0e130d] to-[#060806] border-b border-[var(--border-color)]">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-neon/15 text-neon border border-neon/30"
+                                        data-i18n="p2Badge">LIVE
+                                        DASHBOARD</span>
+                                    <span class="text-[11px] font-mono text-[#9B9899]" data-i18n="p2Cat">Scraping &amp;
+                                        ETL</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between gap-1.5 text-[10px] font-mono text-[#F2F0F2]">
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p2Step1">
+                                        22 Web Pages</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-neon/10 border border-neon/40 text-neon text-center flex-1"
+                                        data-i18n="p2Step2">
+                                        Python + MySQL</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p2Step3">
+                                        Interactive UI</div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div>
+                                    <h3 class="font-heading text-lg font-bold mb-1" data-i18n="p2Title">OpenSooq ETL
+                                        Pipeline &amp;
+                                        Dashboard</h3>
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="p2Sub">Automated web scraping
+                                        pipeline
+                                        extracting 513 mobile listings into MySQL with an interactive deployed
+                                        dashboard.</p>
+                                </div>
+
+                                <div class="space-y-2 text-xs">
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblProblem">Problem:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p2Prob"> Tracking mobile
+                                            market prices and trends
+                                            manually across dozens of marketplace pages was slow and
+                                            unstructured.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblSolution">Solution:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p2Sol"> Engineered a Python
+                                            scraper across 22
+                                            pages, cleaned pricing &amp; brand attributes, loaded into MySQL, and
+                                            published a live dashboard.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-neon/5 border border-neon/20">
+                                        <span class="font-bold text-neonDark dark:text-neon"
+                                            data-i18n="lblResult">Result:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p2Res"> Structured 513 live
+                                            listings into a
+                                            queryable database paired with instant visual market exploration on GitHub
+                                            Pages.</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Python</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]"
+                                        data-i18n="pillScraping">Web
+                                        Scraping</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">MySQL</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Pandas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 flex items-center gap-2.5">
+                            <a href="https://github.com/3bdelrhman8/OpenSooq-ETL-Pipeline-Dashboard" target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 py-2.5 px-3 rounded-xl bg-[var(--bg-surface-alt)] hover:border-neonDark dark:hover:border-neon border border-[var(--border-color)] text-xs font-bold text-center transition">
+                                GitHub
+                            </a>
+                            <a href="https://3bdelrhman8.github.io/OpenSooq-ETL-Pipeline-Dashboard/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-neon flex-1 py-2.5 px-3 rounded-xl text-xs font-bold text-center"
+                                data-i18n="btnLiveDemo">
+                                Live Demo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden flex flex-col justify-between hover:border-neonDark/60 dark:hover:border-neon/60">
+                        <div>
+                            <div
+                                class="p-5 bg-gradient-to-br from-[#0e130d] to-[#060806] border-b border-[var(--border-color)]">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-neon/15 text-neon border border-neon/30"
+                                        data-i18n="p3Badge">DATA
+                                        &amp; FORECASTING</span>
+                                    <span class="text-[11px] font-mono text-[#9B9899]" data-i18n="p3Cat">Time-Series
+                                        Pipeline</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between gap-1.5 text-[10px] font-mono text-[#F2F0F2]">
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p3Step1">
+                                        Market Feed</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-neon/10 border border-neon/40 text-neon text-center flex-1"
+                                        data-i18n="p3Step2">
+                                        Feature Pipeline</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p3Step3">
+                                        Forecast Output</div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div>
+                                    <h3 class="font-heading text-lg font-bold mb-1" data-i18n="p3Title">PredictiStock
+                                    </h3>
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="p3Sub">Modular stock data
+                                        processing and trend
+                                        forecasting pipeline built with Python data libraries.</p>
+                                </div>
+
+                                <div class="space-y-2 text-xs">
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblProblem">Problem:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p3Prob"> Noisy historical
+                                            market series require
+                                            structured preprocessing and technical indicators before modeling.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblSolution">Solution:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p3Sol"> Built a clean Python
+                                            workflow for
+                                            ingesting time-series data, engineering rolling features, and generating
+                                            forecasts.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-neon/5 border border-neon/20">
+                                        <span class="font-bold text-neonDark dark:text-neon"
+                                            data-i18n="lblResult">Result:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p3Res"> Produced an organized,
+                                            extensible
+                                            forecasting codebase with reproducible evaluation metrics.</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Python</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Pandas</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">NumPy</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Scikit-Learn</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 flex items-center gap-2.5">
+                            <a href="https://github.com/3bdelrhman8/PredictiStock" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-neon flex-1 py-2.5 px-3 rounded-xl text-xs font-bold text-center"
+                                data-i18n="btnViewGithub">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="stagger-child spotlight-card tilt-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden flex flex-col justify-between hover:border-neonDark/60 dark:hover:border-neon/60">
+                        <div>
+                            <div
+                                class="p-5 bg-gradient-to-br from-[#0e130d] to-[#060806] border-b border-[var(--border-color)]">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-neon/15 text-neon border border-neon/30"
+                                        data-i18n="p4Badge">END-TO-END
+                                        PIPELINE</span>
+                                    <span class="text-[11px] font-mono text-[#9B9899]" data-i18n="p4Cat">ML &amp; Data
+                                        Prep</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between gap-1.5 text-[10px] font-mono text-[#F2F0F2]">
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p4Step1">
+                                        Customer Logs</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-neon/10 border border-neon/40 text-neon text-center flex-1"
+                                        data-i18n="p4Step2">
+                                        Clean &amp; Encode</div>
+                                    <span class="text-neon inline-block dir-arrow">→</span>
+                                    <div class="px-2 py-1.5 rounded-lg bg-[#141614] border border-[#252823] text-center flex-1"
+                                        data-i18n="p4Step3">
+                                        Churn Model</div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div>
+                                    <h3 class="font-heading text-lg font-bold mb-1" data-i18n="p4Title">Customer Churn
+                                        Prediction Pipeline
+                                    </h3>
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="p4Sub">Reproducible data
+                                        preprocessing and
+                                        classification pipeline identifying key drivers of customer attrition.</p>
+                                </div>
+
+                                <div class="space-y-2 text-xs">
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblProblem">Problem:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p4Prob"> Raw customer records
+                                            contained mixed
+                                            categorical features, nulls, and class imbalance obscuring churn
+                                            signals.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-[var(--bg-surface-alt)]">
+                                        <span class="font-bold text-[var(--text-primary)]"
+                                            data-i18n="lblSolution">Solution:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p4Sol"> Structured an
+                                            end-to-end preprocessing,
+                                            feature scaling, and Scikit-Learn classification pipeline.</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-neon/5 border border-neon/20">
+                                        <span class="font-bold text-neonDark dark:text-neon"
+                                            data-i18n="lblResult">Result:</span>
+                                        <span class="text-[var(--text-muted)]" data-i18n="p4Res"> Highlighted top
+                                            retention risk
+                                            indicators with a clean, repeatable training workflow.</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Python</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Pandas</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]">Scikit-Learn</span>
+                                    <span
+                                        class="px-2 py-1 rounded-lg text-[11px] font-medium bg-[var(--bg-surface-alt)] border border-[var(--border-color)]"
+                                        data-i18n="pillCleaning">Data
+                                        Cleaning</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 flex items-center gap-2.5">
+                            <a href="https://github.com/3bdelrhman8/customer-churn-project" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-neon flex-1 py-2.5 px-3 rounded-xl text-xs font-bold text-center"
+                                data-i18n="btnViewGithub">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 lg:py-28 border-t border-[var(--border-color)] relative overflow-hidden">
+            <div
+                class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[560px] h-[260px] rounded-full bg-neon/10 blur-[120px]">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="reveal mb-12 text-center max-w-2xl mx-auto">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neonDark dark:text-neon uppercase tracking-widest mb-3">
+                        <span>07</span><span>/</span><span data-i18n="contactKicker">Get In Touch</span>
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-3"
+                        data-i18n="contactTitle">
+                        Ready to Turn Your Data Into Reliable Pipelines?
+                    </h2>
+                    <p class="text-sm sm:text-base text-[var(--text-muted)]" data-i18n="contactSub">
+                        Open to freelance data engineering projects, internships, and technical collaborations. Reach
+                        out directly or send a quick message.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 reveal">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div
+                            class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-5 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-neon/10 border border-neon/25 flex items-center justify-center text-neonDark dark:text-neon shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="contactEmailLbl">Email</p>
+                                    <a href="mailto:3bdoahmed75@gmail.com" dir="ltr"
+                                        class="text-sm font-semibold truncate block hover:text-neonDark dark:hover:text-neon transition">3bdoahmed75@gmail.com</a>
+                                </div>
+                            </div>
+                            <button
+                                class="copy-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface-alt)] hover:text-neonDark dark:hover:text-neon border border-[var(--border-color)] transition shrink-0"
+                                data-copy="3bdoahmed75@gmail.com" data-i18n="btnCopy">
+                                Copy
+                            </button>
+                        </div>
+
+                        <div
+                            class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-5 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-neon/10 border border-neon/25 flex items-center justify-center text-neonDark dark:text-neon shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-xs text-[var(--text-muted)]" data-i18n="contactPhoneLbl">WhatsApp /
+                                        Phone</p>
+                                    <a href="https://wa.me/201025609781" target="_blank" rel="noopener noreferrer"
+                                        dir="ltr"
+                                        class="text-sm font-semibold truncate block hover:text-neonDark dark:hover:text-neon transition">+20
+                                        102 560 9781</a>
+                                </div>
+                            </div>
+                            <button
+                                class="copy-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface-alt)] hover:text-neonDark dark:hover:text-neon border border-[var(--border-color)] transition shrink-0"
+                                data-copy="+201025609781" data-i18n="btnCopy">
+                                Copy
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="https://www.linkedin.com/in/3bdelrahman-essa/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-5 hover:border-neonDark dark:hover:border-neon transition flex items-center gap-3">
+                                <span
+                                    class="w-9 h-9 rounded-xl bg-neon/10 text-neonDark dark:text-neon font-heading font-bold text-sm flex items-center justify-center shrink-0">in</span>
+                                <div class="min-w-0">
+                                    <p class="text-sm font-bold">LinkedIn</p>
+                                    <p class="text-[11px] text-[var(--text-muted)] truncate" dir="ltr">
+                                        /in/3bdelrahman-essa</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/3bdelrhman8" target="_blank" rel="noopener noreferrer"
+                                class="spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-5 hover:border-neonDark dark:hover:border-neon transition flex items-center gap-3">
+                                <span
+                                    class="w-9 h-9 rounded-xl bg-neon/10 text-neonDark dark:text-neon font-heading font-bold text-sm flex items-center justify-center shrink-0">GH</span>
+                                <div class="min-w-0">
+                                    <p class="text-sm font-bold">GitHub</p>
+                                    <p class="text-[11px] text-[var(--text-muted)] truncate" dir="ltr">@3bdelrhman8</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form id="contact-form"
+                        class="lg:col-span-7 spotlight-card rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 sm:p-8 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="c-name" class="block text-xs font-semibold mb-1.5"
+                                    data-i18n="formNameLbl">Your Name</label>
+                                <input id="c-name" type="text" required placeholder="John Doe"
+                                    data-i18n-placeholder="formNamePh"
+                                    class="w-full px-4 py-3 rounded-xl bg-[var(--bg-surface-alt)] border border-[var(--border-color)] text-sm focus:outline-none focus:border-neonDark dark:focus:border-neon transition" />
+                            </div>
+                            <div>
+                                <label for="c-email" class="block text-xs font-semibold mb-1.5"
+                                    data-i18n="formEmailLbl">Your Email</label>
+                                <input id="c-email" type="email" required placeholder="john@company.com"
+                                    data-i18n-placeholder="formEmailPh"
+                                    class="w-full px-4 py-3 rounded-xl bg-[var(--bg-surface-alt)] border border-[var(--border-color)] text-sm focus:outline-none focus:border-neonDark dark:focus:border-neon transition" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="c-subject" class="block text-xs font-semibold mb-1.5"
+                                data-i18n="formSubjLbl">Subject</label>
+                            <input id="c-subject" type="text" required
+                                placeholder="ETL Pipeline / SQL Architecture / Scraping"
+                                data-i18n-placeholder="formSubjPh"
+                                class="w-full px-4 py-3 rounded-xl bg-[var(--bg-surface-alt)] border border-[var(--border-color)] text-sm focus:outline-none focus:border-neonDark dark:focus:border-neon transition" />
+                        </div>
+
+                        <div>
+                            <label for="c-message" class="block text-xs font-semibold mb-1.5"
+                                data-i18n="formMsgLbl">Tell me about your
+                                project</label>
+                            <textarea id="c-message" rows="4" required
+                                placeholder="Share your data sources, goals, or timeline..."
+                                data-i18n-placeholder="formMsgPh"
+                                class="w-full px-4 py-3 rounded-xl bg-[var(--bg-surface-alt)] border border-[var(--border-color)] text-sm focus:outline-none focus:border-neonDark dark:focus:border-neon transition resize-none"></textarea>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button type="submit"
+                                class="magnetic-btn btn-neon w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-sm inline-flex items-center justify-center gap-2">
+                                <span data-i18n="btnSendEmail">Send via Email</span>
+                                <svg class="w-4 h-4 dir-arrow" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                </svg>
+                            </button>
+                            <button type="button" id="whatsapp-send-btn"
+                                class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm border border-[var(--border-color)] bg-[var(--bg-surface-alt)] hover:border-neonDark dark:hover:border-neon hover:text-neonDark dark:hover:text-neon transition inline-flex items-center justify-center gap-2">
+                                <span data-i18n="btnSendWhatsapp">Send via WhatsApp</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-[var(--border-color)] bg-[var(--bg-surface)] py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-[var(--border-color)]">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2.5">
+                        <div
+                            class="w-9 h-9 rounded-xl overflow-hidden bg-obsidian border border-neon/45 shadow-[0_0_12px_-3px_rgba(145,231,79,0.4)] flex items-center justify-center">
+                            <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path d="M32 58L10 45V39L32 52L54 39V45L32 58Z" fill="#183032" stroke="#4F8A70"
+                                    stroke-width="1.5" stroke-linejoin="round" />
+                                <path d="M32 48L10 35V28L32 41L54 28V35L32 48Z" fill="#1E463C" stroke="#78D86B"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="M32 37L10 24L32 11L54 24L32 37Z" fill="#91E74F" fill-opacity="0.18"
+                                    stroke="#91E74F" stroke-width="2" stroke-linejoin="round" />
+                                <path d="M32 31L20 24L32 17L44 24L32 31Z" fill="#91E74F" />
+                            </svg>
+                        </div>
+                        <span class="font-heading font-bold text-base" data-i18n="fullName">Abdelrahman Ahmed</span>
+                    </div>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-xs" data-i18n="footerBio">
+                        Junior Data Engineer building scalable ETL pipelines, optimized SQL warehouses, and automated
+                        web data solutions.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-heading font-bold text-sm" data-i18n="footerNavTitle">Navigation</h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-[var(--text-muted)]">
+                        <a href="#home" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navHome">Home</a>
+                        <a href="#about" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navAbout">About</a>
+                        <a href="#education" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navEducation">Education</a>
+                        <a href="#skills" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navSkills">Skills</a>
+                        <a href="#services" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navServices">Services</a>
+                        <a href="#projects" class="hover:text-neonDark dark:hover:text-neon transition"
+                            data-i18n="navProjects">Projects</a>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-heading font-bold text-sm" data-i18n="footerConnectTitle">Let's Connect</h4>
+                    <p class="text-xs text-[var(--text-muted)]" data-i18n="footerConnectSub">
+                        Available for freelance ETL pipelines, web scraping, SQL optimization, and data engineering
+                        roles.
+                    </p>
+                    <div class="flex items-center gap-2 pt-1">
+                        <a href="https://www.linkedin.com/in/3bdelrahman-essa/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface-alt)] border border-[var(--border-color)] hover:border-neonDark dark:hover:border-neon transition">LinkedIn</a>
+                        <a href="https://github.com/3bdelrhman8" target="_blank" rel="noopener noreferrer"
+                            class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface-alt)] border border-[var(--border-color)] hover:border-neonDark dark:hover:border-neon transition">GitHub</a>
+                        <a href="mailto:3bdoahmed75@gmail.com"
+                            class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface-alt)] border border-[var(--border-color)] hover:border-neonDark dark:hover:border-neon transition"
+                            data-i18n="footerEmailBtn">Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[var(--text-muted)]">
+                <p data-i18n="footerCopy">© 2026 Abdelrahman Ahmed. All Rights Reserved.</p>
+                <p class="font-mono" data-i18n="footerTagline">Data Engineering Portfolio • Cairo, Egypt</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            let currentSkillTab = 'de';
+            let currentLang = 'en';
+            let activeCredKey = null;
+            const htmlEl = document.documentElement;
+
+            const translations = {
+                en: {
+                    pageTitle: 'Abdelrahman Ahmed | Junior Data Engineer',
+                    brandShort: 'Abdelrahman',
+                    fullName: 'Abdelrahman Ahmed',
+                    primaryRole: 'Junior Data Engineer',
+                    navHome: 'Home',
+                    navAbout: 'About',
+                    navEducation: 'Education',
+                    navSkills: 'Skills',
+                    navExperience: 'Experience',
+                    navServices: 'Services',
+                    navProjects: 'Projects',
+                    navContact: 'Contact',
+                    navConnect: 'Connect Me',
+
+                    heroHello: "> HELLO, I'M",
+                    heroFirstName: 'Abdelrahman',
+                    heroLastName: 'Ahmed',
+                    heroSubtitle: 'Engineering reliable ETL pipelines, optimized SQL databases, and scalable data architectures using Python, SQL, PySpark, and Web Scraping.',
+                    heroViewWork: 'View My Work',
+                    heroDownloadCv: 'Download CV',
+                    heroStatus1: 'Available for Freelance & Data Roles',
+                    heroStatus2: 'Cairo, Egypt • DEPI Trainee',
+
+                    mqSqlOpt: 'SQL Optimization',
+                    mqEtl: 'ETL / ELT Pipelines',
+                    mqScraping: 'Web Scraping',
+
+                    aboutKicker: 'About Me',
+                    aboutTitle: 'Transforming Raw Data Into Meaningful, Scalable Solutions.',
+                    aboutP1: 'Computer Science student and aspiring Data Engineer specializing in database optimization, ETL pipelines, and scalable data architecture. My academic journey at Zagazig National University has built a strong foundation in algorithms, databases, and machine learning, while my training in the Microsoft Data Engineer track (DEPI) hones my hands-on expertise in modern data systems.',
+                    aboutP2: 'From automated web scraping pipelines and relational data warehouses to predictive modeling workflows, I thrive on solving complex engineering challenges using Python, SQL, PySpark, and dbt. I am actively looking forward to collaborating on impactful data engineering projects and growing within innovative teams.',
+                    statProjects: 'Data Projects',
+                    statGpa: 'GPA Score',
+                    statCerts: 'Programs & Certs',
+                    sumUniLabel: 'University',
+                    sumUniVal: "Zagazig National University '27",
+                    sumTrackLabel: 'Training Track',
+                    sumTrackVal: 'DEPI Microsoft Data Engineer',
+                    sumLocLabel: 'Location',
+                    sumLocVal: 'Cairo, Egypt',
+                    sumCoreStack: 'Core Tech Stack',
+                    pillEtl: 'ETL Pipelines',
+                    pillScraping: 'Web Scraping',
+                    pillDwh: 'Data Warehousing',
+                    pillCleaning: 'Data Cleaning',
+
+                    eduKicker: 'Education & Certifications',
+                    eduTitle: 'Academic Foundation & Industry Credentials',
+                    edu1Badge: 'B.Sc. Computer Science',
+                    edu1Date: 'Oct 2023 – Present',
+                    edu1Title: 'Zagazig National University',
+                    edu1Sub: '10th of Ramadan • Specialization: Artificial Intelligence • GPA: 3.0',
+                    edu1FocusLbl: 'Core Focus:',
+                    edu1FocusVal: 'Data Engineering, Database Systems, Algorithm Design, Machine Learning, and Parallel Computing (OpenMP).',
+                    edu1MileLbl: 'Milestone:',
+                    edu1MileVal: 'Selected for the Microsoft Data Engineer path under DEPI.',
+                    edu2Badge: 'In Progress • MCIT',
+                    edu2Date: 'Jul 2026 – Present',
+                    edu2Title: 'Digital Egypt Pioneers Initiative (DEPI)',
+                    edu2Sub: 'Microsoft Data Engineer Track',
+                    edu2Desc: 'Intensive training covering modern Microsoft data architecture, cloud solutions, automated ETL pipelines, SQL optimization, and scalable warehousing.',
+                    eduViewProg: 'View Program Details',
+                    eduCertBadge: 'Certificate',
+                    edu3Title: 'Build with AI: Masr Edition',
+                    edu3Sub: 'Google for Developers & ITI',
+                    edu3Desc: 'Hands-on developer training focused on building applied AI workflows and integrating modern cloud and developer tools.',
+                    eduViewCred: 'View Credential Details',
+                    edu4Date: 'May 2025',
+                    edu4Title: 'Sprints x Microsoft Summer Camp',
+                    edu4Sub: 'AI & Machine Learning Track',
+                    edu4Desc: 'Practical training in Python data preprocessing, machine learning pipelines, and applied predictive modeling with Sprints and Microsoft.',
+                    modalVerifiedNote: 'Official training record documented on LinkedIn & CV.',
+                    modalViewLinkedin: 'View on LinkedIn',
+                    modalDone: 'Done',
+
+                    skillsKicker: 'Technical Toolkit',
+                    skillsTitle: 'Skills Grouped by Workflow',
+                    tabDe: 'Data Engineering & Pipelines',
+                    tabDb: 'Databases & Tools',
+                    tabMl: 'Programming & Machine Learning',
+
+                    expKicker: 'Experience',
+                    expTitle: 'Hands-On Engineering & Training',
+                    expDate: 'JULY 2026 – PRESENT',
+                    expLoc: 'Cairo, Egypt • Intensive Track',
+                    expRole: 'Data Engineering Trainee',
+                    expOrg: 'Digital Egypt Pioneers Initiative (DEPI) — Microsoft Data Engineer Track',
+                    carChallenge: 'Challenge',
+                    expChallengeText: 'Designing production-grade data architectures capable of ingesting, validating, and transforming large multi-table datasets into clean analytical schemas.',
+                    carAction: 'Action',
+                    expAction1: 'Engineered end-to-end ETL pipelines in Python, SQL, and dbt.',
+                    expAction2: 'Designed normalized and Star Schema warehouses in PostgreSQL.',
+                    expAction3: 'Applied algorithmic problem-solving to optimize query and workflow performance.',
+                    carResult: 'Result',
+                    expResultText: 'Delivered repeatable, modular data pipelines and analytics-ready warehouses that eliminate manual data cleaning and speed up downstream analysis.',
+
+                    srvKicker: 'Services',
+                    srvTitle: 'How I Help Projects Scale with Clean Data',
+                    lblProblem: 'Problem:',
+                    lblSolution: 'Solution:',
+                    lblResult: 'Result:',
+                    srv1Title: 'ETL & Data Pipeline Engineering',
+                    srv1Desc: 'Automated Python, SQL, and PySpark pipelines that extract, clean, validate, and load data reliably from APIs, CSVs, and applications.',
+                    srv1Prob: 'Hours wasted manually cleaning inconsistent files and broken spreadsheets.',
+                    srv1Res: 'Automated, repeatable pipelines delivering structured data on schedule.',
+                    srv2Title: 'SQL & Database Optimization',
+                    srv2Desc: 'Relational schema modeling, Star Schema data warehouses, dbt transformations, and tuned PostgreSQL/MySQL queries built for speed.',
+                    srv2Prob: 'Slow queries, duplicate records, and unindexed tables slowing down analytics.',
+                    srv2Res: 'Clean, fast single source of truth built to scale cleanly.',
+                    srv3Title: 'Web Scraping & API Integration',
+                    srv3Desc: 'Custom Python scrapers and REST API connectors that gather real-time market data, clean it, and load it directly into databases or dashboards.',
+                    srv3Prob: 'Valuable market listings and pricing signals scattered across web pages.',
+                    srv3Res: 'Structured, searchable datasets ready for tracking and modeling.',
+
+                    projKicker: 'Featured Projects',
+                    projTitle: 'Real Data Pipelines & Engineering Builds',
+                    projExploreAll: 'Explore All Repositories',
+                    p1Badge: 'FEATURED • DEPI',
+                    p1Cat: 'Data Engineering',
+                    p1Step1: 'Raw Datasets',
+                    p1Step2: 'Python & SQL ETL',
+                    p1Step3: 'Data Warehouse',
+                    p1Title: 'DEPI Data Engineer Project',
+                    p1Sub: 'End-to-end ETL architecture, data modeling, and analytical warehousing built for the Microsoft Data Engineer track.',
+                    p1Prob: ' Multi-source operational datasets with inconsistent keys and missing values prevented reliable analytical querying.',
+                    p1Sol: ' Built a modular extraction, transformation, and loading workflow into a structured SQL warehouse with validation rules.',
+                    p1Res: ' Delivered a clean, reproducible data model ready for fast analytical queries and business metrics.',
+
+                    p2Badge: 'LIVE DASHBOARD',
+                    p2Cat: 'Scraping & ETL',
+                    p2Step1: '22 Web Pages',
+                    p2Step2: 'Python + MySQL',
+                    p2Step3: 'Interactive UI',
+                    p2Title: 'OpenSooq ETL Pipeline & Dashboard',
+                    p2Sub: 'Automated web scraping pipeline extracting 513 mobile listings into MySQL with an interactive deployed dashboard.',
+                    p2Prob: ' Tracking mobile market prices and trends manually across dozens of marketplace pages was slow and unstructured.',
+                    p2Sol: ' Engineered a Python scraper across 22 pages, cleaned pricing & brand attributes, loaded into MySQL, and published a live dashboard.',
+                    p2Res: ' Structured 513 live listings into a queryable database paired with instant visual market exploration on GitHub Pages.',
+
+                    p3Badge: 'DATA & FORECASTING',
+                    p3Cat: 'Time-Series Pipeline',
+                    p3Step1: 'Market Feed',
+                    p3Step2: 'Feature Pipeline',
+                    p3Step3: 'Forecast Output',
+                    p3Title: 'PredictiStock',
+                    p3Sub: 'Modular stock data processing and trend forecasting pipeline built with Python data libraries.',
+                    p3Prob: ' Noisy historical market series require structured preprocessing and technical indicators before modeling.',
+                    p3Sol: ' Built a clean Python workflow for ingesting time-series data, engineering rolling features, and generating forecasts.',
+                    p3Res: ' Produced an organized, extensible forecasting codebase with reproducible evaluation metrics.',
+
+                    p4Badge: 'END-TO-END PIPELINE',
+                    p4Cat: 'ML & Data Prep',
+                    p4Step1: 'Customer Logs',
+                    p4Step2: 'Clean & Encode',
+                    p4Step3: 'Churn Model',
+                    p4Title: 'Customer Churn Prediction Pipeline',
+                    p4Sub: 'Reproducible data preprocessing and classification pipeline identifying key drivers of customer attrition.',
+                    p4Prob: ' Raw customer records contained mixed categorical features, nulls, and class imbalance obscuring churn signals.',
+                    p4Sol: ' Structured an end-to-end preprocessing, feature scaling, and Scikit-Learn classification pipeline.',
+                    p4Res: ' Highlighted top retention risk indicators with a clean, repeatable training workflow.',
+
+                    btnViewGithub: 'View on GitHub',
+                    btnLiveDemo: 'Live Demo',
+
+                    contactKicker: 'Get In Touch',
+                    contactTitle: 'Ready to Turn Your Data Into Reliable Pipelines?',
+                    contactSub: 'Open to freelance data engineering projects, internships, and technical collaborations. Reach out directly or send a quick message.',
+                    contactEmailLbl: 'Email',
+                    contactPhoneLbl: 'WhatsApp / Phone',
+                    btnCopy: 'Copy',
+                    formNameLbl: 'Your Name',
+                    formNamePh: 'John Doe',
+                    formEmailLbl: 'Your Email',
+                    formEmailPh: 'john@company.com',
+                    formSubjLbl: 'Subject',
+                    formSubjPh: 'ETL Pipeline / SQL Architecture / Scraping',
+                    formMsgLbl: 'Tell me about your project',
+                    formMsgPh: 'Share your data sources, goals, or timeline...',
+                    btnSendEmail: 'Send via Email',
+                    btnSendWhatsapp: 'Send via WhatsApp',
+
+                    footerBio: 'Junior Data Engineer building scalable ETL pipelines, optimized SQL warehouses, and automated web data solutions.',
+                    footerNavTitle: 'Navigation',
+                    footerConnectTitle: "Let's Connect",
+                    footerConnectSub: 'Available for freelance ETL pipelines, web scraping, SQL optimization, and data engineering roles.',
+                    footerEmailBtn: 'Email',
+                    footerCopy: '© 2026 Abdelrahman Ahmed. All Rights Reserved.',
+                    footerTagline: 'Data Engineering Portfolio • Cairo, Egypt',
+
+                    toastDark: 'Switched to Dark Mode',
+                    toastLight: 'Switched to Light Mode',
+                    toastLang: 'Switched to English',
+                    toastCopiedPrefix: 'Copied: ',
+                    toastCopyFail: 'Could not copy automatically',
+                    toastDownloadCv: 'Downloading Abdelrahman Ahmed CV...',
+                    toastOpeningEmail: 'Opening your email app to send the message...',
+                    toastOpeningWhatsapp: 'Opening WhatsApp chat...'
+                },
+                ar: {
+                    pageTitle: 'عبدالرحمن أحمد | مهندس بيانات مبتدئ',
+                    brandShort: 'عبدالرحمن',
+                    fullName: 'عبدالرحمن أحمد',
+                    primaryRole: 'مهندس بيانات مبتدئ',
+                    navHome: 'الرئيسية',
+                    navAbout: 'نبذة عني',
+                    navEducation: 'التعليم',
+                    navSkills: 'المهارات',
+                    navExperience: 'الخبرة',
+                    navServices: 'الخدمات',
+                    navProjects: 'المشاريع',
+                    navContact: 'تواصل معي',
+                    navConnect: 'تواصل معي',
+
+                    heroHello: '> مرحباً، أنا',
+                    heroFirstName: 'عبدالرحمن',
+                    heroLastName: 'أحمد',
+                    heroSubtitle: 'تصميم وبناء خطوط أنابيب ETL موثوقة، وقواعد بيانات SQL محسّنة، وبنيات بيانات قابلة للتوسع باستخدام Python وSQL وPySpark واستخراج بيانات الويب.',
+                    heroViewWork: 'استعرض أعمالي',
+                    heroDownloadCv: 'تحميل السيرة الذاتية',
+                    heroStatus1: 'متاح للعمل الحر ووظائف هندسة البيانات',
+                    heroStatus2: 'القاهرة، مصر • متدرب DEPI',
+
+                    mqSqlOpt: 'تحسين استعلامات SQL',
+                    mqEtl: 'خطوط أنابيب ETL / ELT',
+                    mqScraping: 'استخراج بيانات الويب',
+
+                    aboutKicker: 'نبذة عني',
+                    aboutTitle: 'تحويل البيانات الخام إلى حلول عملية وقابلة للتوسع.',
+                    aboutP1: 'طالب علوم حاسب ومهندس بيانات طموح متخصص في تحسين قواعد البيانات، وخطوط أنابيب ETL، وبناء أنظمة البيانات القابلة للتوسع. منحتني دراستي في جامعة الزقازيق الأهلية أساساً قوياً في الخوارزميات وقواعد البيانات وتعلم الآلة، بينما يصقل تدريبي في مسار مهندس بيانات مايكروسوفت (DEPI) خبرتي العملية في أنظمة البيانات الحديثة.',
+                    aboutP2: 'بدءاً من خطوط استخراج بيانات الويب الآلية ومستودعات البيانات العلائقية وصولاً إلى مسارات النمذجة التنبؤية، أستمتع بحل التحديات الهندسية المعقدة باستخدام Python وSQL وPySpark وdbt، وأتطلع للتعاون في مشاريع هندسة بيانات مؤثرة والنمو ضمن فرق مبتكرة.',
+                    statProjects: 'مشاريع بيانات',
+                    statGpa: 'المعدل التراكمي',
+                    statCerts: 'برامج وشهادات',
+                    sumUniLabel: 'الجامعة',
+                    sumUniVal: "جامعة الزقازيق الأهلية '27",
+                    sumTrackLabel: 'مسار التدريب',
+                    sumTrackVal: 'مهندس بيانات مايكروسوفت DEPI',
+                    sumLocLabel: 'الموقع',
+                    sumLocVal: 'القاهرة، مصر',
+                    sumCoreStack: 'التقنيات الأساسية',
+                    pillEtl: 'خطوط ETL',
+                    pillScraping: 'استخراج البيانات',
+                    pillDwh: 'مستودعات البيانات',
+                    pillCleaning: 'تنظيف البيانات',
+
+                    eduKicker: 'التعليم والشهادات',
+                    eduTitle: 'الأساس الأكاديمي والاعتمادات المهنية',
+                    edu1Badge: 'بكالوريوس علوم الحاسب',
+                    edu1Date: 'أكتوبر 2023 – الحاضر',
+                    edu1Title: 'جامعة الزقازيق الأهلية',
+                    edu1Sub: 'العاشر من رمضان • التخصص: الذكاء الاصطناعي • المعدل: 3.0',
+                    edu1FocusLbl: 'التركيز الأساسي:',
+                    edu1FocusVal: 'هندسة البيانات، أنظمة قواعد البيانات، تصميم الخوارزميات، تعلم الآلة، والحوسبة المتوازية (OpenMP).',
+                    edu1MileLbl: 'إنجاز بارز:',
+                    edu1MileVal: 'الاختيار ضمن مسار مهندس بيانات مايكروسوفت في مبادرة DEPI.',
+                    edu2Badge: 'قيد التنفيذ • وزارة الاتصالات',
+                    edu2Date: 'يوليو 2026 – الحاضر',
+                    edu2Title: 'مبادرة رواد مصر الرقمية (DEPI)',
+                    edu2Sub: 'مسار مهندس بيانات مايكروسوفت',
+                    edu2Desc: 'تدريب مكثف يغطي بنية بيانات مايكروسوفت الحديثة، الحلول السحابية، أتمتة خطوط ETL، تحسين استعلامات SQL، ومستودعات البيانات القابلة للتوسع.',
+                    eduViewProg: 'عرض تفاصيل البرنامج',
+                    eduCertBadge: 'شهادة معتمدة',
+                    edu3Title: 'Build with AI: نسخة مصر',
+                    edu3Sub: 'Google for Developers ومعهد ITI',
+                    edu3Desc: 'تدريب عملي للمطورين يركز على بناء تطبيقات الذكاء الاصطناعي العملية ودمج الأدوات السحابية والبرمجية الحديثة.',
+                    eduViewCred: 'عرض تفاصيل الشهادة',
+                    edu4Date: 'مايو 2025',
+                    edu4Title: 'معسكر Sprints × مايكروسوفت الصيفي',
+                    edu4Sub: 'مسار الذكاء الاصطناعي وتعلم الآلة',
+                    edu4Desc: 'تدريب تطبيقي في تجهيز البيانات بلغة Python، وبناء خطوط تعلم الآلة، والنمذجة التنبؤية بالتعاون مع Sprints ومايكروسوفت.',
+                    modalVerifiedNote: 'سجل تدريبي رسمي موثق على LinkedIn وفي السيرة الذاتية.',
+                    modalViewLinkedin: 'عرض على LinkedIn',
+                    modalDone: 'تم',
+
+                    skillsKicker: 'الأدوات والمهارات التقنية',
+                    skillsTitle: 'المهارات مصنفة حسب مسار العمل',
+                    tabDe: 'هندسة البيانات وخطوط الأنابيب',
+                    tabDb: 'قواعد البيانات والأدوات',
+                    tabMl: 'البرمجة وتعلم الآلة',
+
+                    expKicker: 'الخبرة العملية',
+                    expTitle: 'الخبرة التطبيقية والتدريب الهندسي',
+                    expDate: 'يوليو 2026 – الحاضر',
+                    expLoc: 'القاهرة، مصر • مسار مكثف',
+                    expRole: 'متدرب هندسة بيانات',
+                    expOrg: 'مبادرة رواد مصر الرقمية (DEPI) — مسار مهندس بيانات مايكروسوفت',
+                    carChallenge: 'التحدي',
+                    expChallengeText: 'تصميم بنيات بيانات بمستوى إنتاجي قادرة على استيعاب والتحقق من وتحويل مجموعات البيانات الكبيرة متعددة الجداول إلى مخططات تحليلية نظيفة.',
+                    carAction: 'الإجراء',
+                    expAction1: 'بناء خطوط أنابيب ETL متكاملة باستخدام Python وSQL وdbt.',
+                    expAction2: 'تصميم مستودعات بيانات معيارية ومخططات Star Schema في PostgreSQL.',
+                    expAction3: 'تطبيق الخوارزميات وحل المشكلات لتحسين أداء الاستعلامات ومسارات العمل.',
+                    carResult: 'النتيجة',
+                    expResultText: 'تقديم خطوط بيانات معيارية قابلة للتكرار ومستودعات جاهزة للتحليل تلغي التنظيف اليدوي وتسرّع العمليات التحليلية.',
+
+                    srvKicker: 'الخدمات',
+                    srvTitle: 'كيف أساعد المشاريع على التوسع ببيانات نظيفة',
+                    lblProblem: 'المشكلة:',
+                    lblSolution: 'الحل:',
+                    lblResult: 'النتيجة:',
+                    srv1Title: 'هندسة خطوط ETL ومعالجة البيانات',
+                    srv1Desc: 'خطوط أنابيب آلية باستخدام Python وSQL وPySpark لاستخراج وتنظيف والتحقق من وتحميل البيانات بموثوقية من واجهات API وملفات CSV والتطبيقات.',
+                    srv1Prob: 'إهدار ساعات طويلة في التنظيف اليدوي للملفات غير المتناسقة وجداول البيانات المعطوبة.',
+                    srv1Res: 'خطوط بيانات آلية قابلة للتكرار توفر بيانات منظمة ودقيقة في الوقت المحدد.',
+                    srv2Title: 'تحسين قواعد بيانات واستعلامات SQL',
+                    srv2Desc: 'نمذجة المخططات العلائقية، ومستودعات Star Schema، وتحويلات dbt، وضبط استعلامات PostgreSQL وMySQL لأقصى سرعة.',
+                    srv2Prob: 'الاستعلامات البطيئة والسجلات المكررة والجداول غير المفهرسة التي تعيق التحليل.',
+                    srv2Res: 'مصدر بيانات موحد ونظيف وسريع مصمم للتوسع بكفاءة.',
+                    srv3Title: 'استخراج بيانات الويب ودمج واجهات API',
+                    srv3Desc: 'أدوات استخراج مخصصة بـ Python وموصلات REST API لجمع بيانات السوق الفورية وتنظيفها وتحميلها مباشرة إلى قواعد البيانات أو لوحات العرض.',
+                    srv3Prob: 'تناثر بيانات السوق والأسعار القيمة عبر عشرات الصفحات غير المنظمة.',
+                    srv3Res: 'مجموعات بيانات منظمة وقابلة للبحث وجاهزة للتتبع والنمذجة.',
+
+                    projKicker: 'أبرز المشاريع',
+                    projTitle: 'مشاريع حقيقية في هندسة وخطوط البيانات',
+                    projExploreAll: 'استكشف جميع المستودعات',
+                    p1Badge: 'مشروع مميز • DEPI',
+                    p1Cat: 'هندسة البيانات',
+                    p1Step1: 'بيانات خام',
+                    p1Step2: 'Python و SQL ETL',
+                    p1Step3: 'مستودع بيانات',
+                    p1Title: 'مشروع مهندس البيانات — DEPI',
+                    p1Sub: 'بنية ETL متكاملة ونمذجة بيانات ومستودع تحليلي تم بناؤه ضمن مسار مهندس بيانات مايكروسوفت.',
+                    p1Prob: ' تعدد مصادر البيانات التشغيلية مع عدم اتساق المفاتيح والقيم المفقودة أعاق دقة الاستعلامات التحليلية.',
+                    p1Sol: ' بناء مسار معياري للاستخراج والتحويل والتحميل إلى مستودع SQL منظم مزود بقواعد تحقق.',
+                    p1Res: ' تقديم نموذج بيانات نظيف وقابل لإعادة التشغيل وجاهز للاستعلامات السريعة.',
+
+                    p2Badge: 'لوحة تفاعلية مباشرة',
+                    p2Cat: 'استخراج بيانات و ETL',
+                    p2Step1: '22 صفحة ويب',
+                    p2Step2: 'Python + MySQL',
+                    p2Step3: 'واجهة تفاعلية',
+                    p2Title: 'خط ETL ولوحة بيانات OpenSooq',
+                    p2Sub: 'خط استخراج بيانات ويب آلي يجلب 513 إعلان هاتف إلى قاعدة MySQL مع لوحة عرض تفاعلية منشورة.',
+                    p2Prob: ' كان تتبع أسعار واتجاهات سوق الهواتف يدوياً عبر عشرات الصفحات بطيئاً وغير منظم.',
+                    p2Sol: ' تطوير أداة استخراج بـ Python عبر 22 صفحة وتنظيف الأسعار والعلامات التجارية وتحميلها إلى MySQL ونشر لوحة مباشرة.',
+                    p2Res: ' هيكلة 513 إعلاناً فعلياً في قاعدة بيانات قابلة للاستعلام مع استكشاف بصري فوري على GitHub Pages.',
+
+                    p3Badge: 'بيانات وتنبؤ زمني',
+                    p3Cat: 'خط سلاسل زمنية',
+                    p3Step1: 'بيانات السوق',
+                    p3Step2: 'هندسة الخصائص',
+                    p3Step3: 'مخرجات التنبؤ',
+                    p3Title: 'PredictiStock',
+                    p3Sub: 'خط معياري لمعالجة بيانات الأسهم والتنبؤ بالاتجاهات مبني بمكتبات البيانات في Python.',
+                    p3Prob: ' تتطلب السلاسل الزمنية التاريخية المشوشة تجهيزاً منظماً ومؤشرات فنية دقيقة قبل النمذجة.',
+                    p3Sol: ' بناء مسار عمل نظيف بـ Python لاستيعاب السلاسل الزمنية وهندسة النوافذ المتحركة وتوليد التوقعات.',
+                    p3Res: ' إنتاج قاعدة برمجية منظمة وقابلة للتوسع مع مقاييس تقييم قابلة للتكرار.',
+
+                    p4Badge: 'خط معالجة متكامل',
+                    p4Cat: 'تجهيز البيانات وتعلم الآلة',
+                    p4Step1: 'سجلات العملاء',
+                    p4Step2: 'تنظيف وترميز',
+                    p4Step3: 'نموذج التصنيف',
+                    p4Title: 'خط التنبؤ بتسرب العملاء',
+                    p4Sub: 'خط قابل للتكرار لتجهيز البيانات وتصنيف العملاء لتحديد أبرز عوامل تسرب المشتركين.',
+                    p4Prob: ' احتوت سجلات العملاء الخام على متغيرات فئوية مختلطة وقيم مفقودة وعدم توازن في الفئات.',
+                    p4Sol: ' هيكلة خط متكامل للتنظيف وتوحيد المقاييس والتصنيف باستخدام Scikit-Learn.',
+                    p4Res: ' إبراز أهم مؤشرات مخاطر التسرب ضمن مسار تدريب نظيف وقابل لإعادة الاستخدام.',
+
+                    btnViewGithub: 'عرض على GitHub',
+                    btnLiveDemo: 'معاينة مباشرة',
+
+                    contactKicker: 'تواصل معي',
+                    contactTitle: 'مستعد لتحويل بياناتك إلى خطوط أنابيب موثوقة؟',
+                    contactSub: 'متاح لمشاريع هندسة البيانات الحرة، وفرص التدريب، والتعاون التقني. تواصل معي مباشرة أو أرسل رسالة سريعة.',
+                    contactEmailLbl: 'البريد الإلكتروني',
+                    contactPhoneLbl: 'واتساب / الهاتف',
+                    btnCopy: 'نسخ',
+                    formNameLbl: 'الاسم',
+                    formNamePh: 'أدخل اسمك الكامل',
+                    formEmailLbl: 'البريد الإلكتروني',
+                    formEmailPh: 'name@company.com',
+                    formSubjLbl: 'الموضوع',
+                    formSubjPh: 'خط أنابيب ETL / تحسين SQL / استخراج بيانات',
+                    formMsgLbl: 'حدثني عن مشروعك',
+                    formMsgPh: 'شارك مصادر البيانات أو الأهداف أو الجدول الزمني...',
+                    btnSendEmail: 'إرسال عبر البريد الإلكتروني',
+                    btnSendWhatsapp: 'إرسال عبر واتساب',
+
+                    footerBio: 'مهندس بيانات مبتدئ أبني خطوط أنابيب ETL قابلة للتوسع، ومستودعات SQL محسّنة، وحلول بيانات ويب آلية.',
+                    footerNavTitle: 'التنقل',
+                    footerConnectTitle: 'لنتواصل',
+                    footerConnectSub: 'متاح لمشاريع خطوط ETL واستخراج البيانات وتحسين SQL ووظائف هندسة البيانات.',
+                    footerEmailBtn: 'البريد',
+                    footerCopy: '© 2026 عبدالرحمن أحمد. جميع الحقوق محفوظة.',
+                    footerTagline: 'معرض أعمال هندسة البيانات • القاهرة، مصر',
+
+                    toastDark: 'تم التبديل إلى الوضع الداكن',
+                    toastLight: 'تم التبديل إلى الوضع الفاتح',
+                    toastLang: 'تم التبديل إلى اللغة العربية',
+                    toastCopiedPrefix: 'تم النسخ: ',
+                    toastCopyFail: 'تعذر النسخ التلقائي',
+                    toastDownloadCv: 'جارٍ تحميل السيرة الذاتية لعبدالرحمن أحمد...',
+                    toastOpeningEmail: 'جارٍ فتح تطبيق البريد لإرسال رسالتك...',
+                    toastOpeningWhatsapp: 'جارٍ فتح محادثة واتساب...'
+                }
+            };
+
+            const rolesByLang = {
+                en: [
+                    'Junior Data Engineer',
+                    'ETL & Pipeline Developer',
+                    'SQL & Database Architect',
+                    'DEPI Microsoft Data Trainee'
+                ],
+                ar: [
+                    'مهندس بيانات مبتدئ',
+                    'مطور خطوط أنابيب ETL',
+                    'مهندس قواعد بيانات SQL',
+                    'متدرب هندسة بيانات مايكروسوفت DEPI'
+                ]
+            };
+
+            const skillsDataByLang = {
+                en: {
+                    de: {
+                        title: 'Data Engineering & Pipelines',
+                        desc: 'Designing automated ETL/ELT workflows, scalable data warehouses, web scrapers, and API data ingestion pipelines.',
+                        items: ['Python', 'SQL', 'ETL / ELT Pipelines', 'PySpark', 'dbt', 'Web Scraping', 'REST APIs', 'Database Optimization', 'Data Warehousing'],
+                    },
+                    db: {
+                        title: 'Databases & Engineering Tools',
+                        desc: 'Managing relational database systems, containerization, version control, and organized project workflows.',
+                        items: ['PostgreSQL', 'MySQL', 'SQLite', 'Docker', 'Git & GitHub', 'VS Code', 'Jupyter / Colab', 'Notion', 'Obsidian'],
+                    },
+                    ml: {
+                        title: 'Programming & Machine Learning',
+                        desc: 'Applying analytical programming, parallel processing, and secondary machine learning workflows to structured data.',
+                        items: ['Pandas', 'NumPy', 'Scikit-Learn', 'Matplotlib & Seaborn', 'C++', 'OpenMP Parallelism', 'Algorithm Design', 'Data Cleaning', 'Feature Engineering'],
+                    },
+                },
+                ar: {
+                    de: {
+                        title: 'هندسة البيانات وخطوط الأنابيب',
+                        desc: 'تصميم مسارات ETL/ELT الآلية، ومستودعات البيانات القابلة للتوسع، وأدوات استخراج الويب، وربط واجهات REST API.',
+                        items: ['Python', 'SQL', 'خطوط ETL / ELT', 'PySpark', 'dbt', 'استخراج بيانات الويب', 'REST APIs', 'تحسين قواعد البيانات', 'مستودعات البيانات'],
+                    },
+                    db: {
+                        title: 'قواعد البيانات وأدوات الهندسة',
+                        desc: 'إدارة أنظمة قواعد البيانات العلائقية، والحاويات، وإدارة الإصدارات، وتنظيم سير العمل التقني.',
+                        items: ['PostgreSQL', 'MySQL', 'SQLite', 'Docker', 'Git & GitHub', 'VS Code', 'Jupyter / Colab', 'Notion', 'Obsidian'],
+                    },
+                    ml: {
+                        title: 'البرمجة وتعلم الآلة',
+                        desc: 'تطبيق البرمجة التحليلية والمعالجة المتوازية ومسارات تعلم الآلة المساندة على البيانات المنظمة.',
+                        items: ['Pandas', 'NumPy', 'Scikit-Learn', 'Matplotlib & Seaborn', 'C++', 'توازي OpenMP', 'تصميم الخوارزميات', 'تنظيف البيانات', 'هندسة الخصائص'],
+                    },
+                }
+            };
+
+            const credentialsByLang = {
+                en: {
+                    depi: {
+                        issuer: 'MCIT • Digital Egypt Pioneers Initiative',
+                        title: 'Microsoft Data Engineer Track (DEPI)',
+                        date: 'July 2026 – Present',
+                        desc: 'Intensive national training track focused on Microsoft Data Architecture, SQL warehousing, Python ETL automation, dbt transformations, and cloud data workflows.'
+                    },
+                    buildai: {
+                        issuer: 'Google for Developers & ITI',
+                        title: 'Build with AI: Masr Edition',
+                        date: 'Completed 2026',
+                        desc: 'Virtual developer training program organized by Google for Developers in partnership with the Information Technology Institute (ITI).'
+                    },
+                    sprints: {
+                        issuer: 'Sprints & Microsoft',
+                        title: 'Sprints x Microsoft Summer Camp - AI & Machine Learning',
+                        date: 'May 2025',
+                        desc: 'Completed intensive summer camp covering end-to-end data preprocessing, supervised learning, and model evaluation in Python.'
+                    }
+                },
+                ar: {
+                    depi: {
+                        issuer: 'وزارة الاتصالات • مبادرة رواد مصر الرقمية',
+                        title: 'مسار مهندس بيانات مايكروسوفت (DEPI)',
+                        date: 'يوليو 2026 – الحاضر',
+                        desc: 'مسار تدريبي وطني مكثف يركز على بنية بيانات مايكروسوفت، ومستودعات SQL، وأتمتة خطوط ETL بلغة Python، وتحويلات dbt، ومسارات البيانات السحابية.'
+                    },
+                    buildai: {
+                        issuer: 'Google for Developers ومعهد ITI',
+                        title: 'برنامج Build with AI: نسخة مصر',
+                        date: 'أُنجز في 2026',
+                        desc: 'برنامج تدريبي للمطورين بتنظيم Google for Developers بالشراكة مع معهد تكنولوجيا المعلومات (ITI).'
+                    },
+                    sprints: {
+                        issuer: 'Sprints ومايكروسوفت',
+                        title: 'معسكر Sprints × مايكروسوفت الصيفي — الذكاء الاصطناعي وتعلم الآلة',
+                        date: 'مايو 2025',
+                        desc: 'إتمام معسكر صيفي مكثف غطى تجهيز البيانات المتكامل، والتعلم الخاضع للإشراف، وتقييم النماذج باستخدام Python.'
+                    }
+                }
+            };
+
+            function t(key) {
+                return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || '';
+            }
+
+            function showToast(message) {
+                const container = document.getElementById('toast-container');
+                if (!container) return;
+                const toast = document.createElement('div');
+                toast.className =
+                    'pointer-events-auto px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] border border-neonDark/40 dark:border-neon/40 text-xs font-semibold text-[var(--text-primary)] shadow-xl transition-all duration-300 opacity-0 translate-y-2';
+                toast.textContent = message;
+                container.appendChild(toast);
+
+                requestAnimationFrame(() => {
+                    toast.classList.remove('opacity-0', 'translate-y-2');
+                });
+
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => toast.remove(), 300);
+                }, 2800);
+            }
+
+            const preloader = document.getElementById('preloader');
+            const preloaderBar = document.getElementById('preloader-bar');
+            const preloaderPercent = document.getElementById('preloader-percent');
+            const preloaderStatus = document.getElementById('preloader-status');
+            const statusesByLang = {
+                en: [
+                    'INITIALIZING PIPELINE...',
+                    'EXTRACTING SOURCES...',
+                    'LOADING SQL MODELS...',
+                    'PORTFOLIO ONLINE'
+                ],
+                ar: [
+                    'جارٍ تهيئة خط البيانات...',
+                    'استخراج المصادر...',
+                    'تحميل نماذج SQL...',
+                    'المعرض جاهز الآن'
+                ]
+            };
+
+            function finishPreloader() {
+                if (!preloader || preloader.classList.contains('done')) return;
+                preloader.classList.add('done');
+                document.body.classList.remove('preloader-active');
+                document.body.classList.add('hero-ready');
+                setTimeout(() => {
+                    if (preloader) preloader.style.display = 'none';
+                }, 800);
+            }
+
+            if (preloader) {
+                let progress = 0;
+                const step = setInterval(() => {
+                    const statuses = statusesByLang[currentLang] || statusesByLang.en;
+                    progress += Math.floor(Math.random() * 14) + 10;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(step);
+                        if (preloaderBar) preloaderBar.style.width = '100%';
+                        if (preloaderPercent) preloaderPercent.textContent = '100%';
+                        if (preloaderStatus) preloaderStatus.textContent = statuses[3];
+                        setTimeout(finishPreloader, 220);
+                        return;
+                    }
+                    if (preloaderBar) preloaderBar.style.width = progress + '%';
+                    if (preloaderPercent) preloaderPercent.textContent = progress + '%';
+                    if (preloaderStatus) {
+                        const idx = Math.min(2, Math.floor((progress / 100) * 3));
+                        preloaderStatus.textContent = statuses[idx];
+                    }
+                }, 110);
+
+                preloader.addEventListener('click', () => {
+                    clearInterval(step);
+                    finishPreloader();
+                });
+
+                // Failsafe timeout so the preloader can never hang
+                setTimeout(() => {
+                    clearInterval(step);
+                    finishPreloader();
+                }, 2600);
+            } else {
+                document.body.classList.remove('preloader-active');
+                document.body.classList.add('hero-ready');
+            }
+
+            const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorRing = document.getElementById('cursor-ring');
+
+            if (isFinePointer && cursorDot && cursorRing) {
+                htmlEl.classList.add('custom-cursor-ready');
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+                let ringX = mouseX;
+                let ringY = mouseY;
+                let visible = false;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    if (!visible) {
+                        visible = true;
+                        cursorDot.style.opacity = '1';
+                        cursorRing.style.opacity = '1';
+                    }
+                    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+                });
+
+                window.addEventListener('mousedown', () => {
+                    cursorRing.classList.add('cursor-down');
+                });
+
+                window.addEventListener('mouseup', () => {
+                    cursorRing.classList.remove('cursor-down');
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    visible = false;
+                    cursorDot.style.opacity = '0';
+                    cursorRing.style.opacity = '0';
+                });
+
+                function animateCursor() {
+                    ringX += (mouseX - ringX) * 0.16;
+                    ringY += (mouseY - ringY) * 0.16;
+                    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor();
+
+                const interactiveSelector = 'a, button, input, textarea, .spotlight-card, .skill-tab';
+                document.addEventListener('mouseover', (e) => {
+                    if (e.target.closest(interactiveSelector)) {
+                        cursorDot.classList.add('cursor-hover');
+                        cursorRing.classList.add('cursor-hover');
+                    }
+                });
+                document.addEventListener('mouseout', (e) => {
+                    if (e.target.closest(interactiveSelector)) {
+                        cursorDot.classList.remove('cursor-hover');
+                        cursorRing.classList.remove('cursor-hover');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.spotlight-card').forEach((card) => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            if (isFinePointer) {
+                document.querySelectorAll('.tilt-card').forEach((card) => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const px = (e.clientX - rect.left) / rect.width - 0.5;
+                        const py = (e.clientY - rect.top) / rect.height - 0.5;
+                        card.style.transform = `perspective(900px) rotateX(${(-py * 5.5).toFixed(2)}deg) rotateY(${(px * 5.5).toFixed(2)}deg) translateY(-3px)`;
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = '';
+                    });
+                });
+
+                document.querySelectorAll('.magnetic-btn').forEach((btn) => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const mx = (e.clientX - rect.left - rect.width / 2) * 0.18;
+                        const my = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                        btn.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+                    });
+                    btn.addEventListener('mouseleave', () => {
+                        btn.style.transform = '';
+                    });
+                });
+            }
+
+            const scrollProgress = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const ratio = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                if (scrollProgress) scrollProgress.style.width = `${ratio}%`;
+            }, { passive: true });
+
+            const typedEl = document.getElementById('typed-role');
+            let roleIndex = 0;
+            let charIndex = rolesByLang.en[0].length;
+            let deleting = false;
+
+            if (typedEl) {
+                setInterval(() => {
+                    const activeRoles = rolesByLang[currentLang] || rolesByLang.en;
+                    const current = activeRoles[roleIndex % activeRoles.length];
+                    if (!deleting) {
+                        charIndex++;
+                        typedEl.textContent = current.slice(0, charIndex);
+                        if (charIndex >= current.length) {
+                            deleting = true;
+                            charIndex = current.length + 14;
+                        }
+                    } else {
+                        charIndex--;
+                        if (charIndex <= current.length) {
+                            typedEl.textContent = current.slice(0, Math.max(0, charIndex));
+                        }
+                        if (charIndex <= 0) {
+                            deleting = false;
+                            roleIndex = (roleIndex + 1) % activeRoles.length;
+                            charIndex = 0;
+                        }
+                    }
+                }, 70);
+            }
+
+            const canvas = document.getElementById('hero-particles');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+
+                function resizeCanvas() {
+                    canvas.width = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
+                    const count = Math.min(48, Math.floor((canvas.width * canvas.height) / 22000));
+                    particles = Array.from({ length: count }, () => ({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.45,
+                        vy: (Math.random() - 0.5) * 0.45,
+                        r: Math.random() * 1.8 + 0.8
+                    }));
+                }
+
+                function drawParticles() {
+                    if (!ctx) return;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    const isDark = htmlEl.classList.contains('dark');
+                    const color = isDark ? '145, 231, 79' : '46, 139, 30';
+
+                    for (let i = 0; i < particles.length; i++) {
+                        const p = particles[i];
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${color}, 0.55)`;
+                        ctx.fill();
+
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const p2 = particles[j];
+                            const dx = p.x - p2.x;
+                            const dy = p.y - p2.y;
+                            const dist = Math.hypot(dx, dy);
+                            if (dist < 120) {
+                                ctx.beginPath();
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.strokeStyle = `rgba(${color}, ${(1 - dist / 120) * 0.16})`;
+                                ctx.lineWidth = 1;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(drawParticles);
+                }
+
+                resizeCanvas();
+                drawParticles();
+                window.addEventListener('resize', resizeCanvas);
+            }
+
+            const themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const isDark = htmlEl.classList.toggle('dark');
+                    try { localStorage.setItem('aa_theme', isDark ? 'dark' : 'light'); } catch (e) { }
+                    showToast(isDark ? t('toastDark') : t('toastLight'));
+                });
+            }
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            function renderSkillPanel() {
+                const panel = document.getElementById('skill-panel');
+                const langSkills = skillsDataByLang[currentLang] || skillsDataByLang.en;
+                const data = langSkills[currentSkillTab];
+                if (!panel || !data) return;
+
+                panel.innerHTML = `
+          <div class="space-y-5 panel-animate">
+            <div>
+              <h3 class="font-heading text-xl font-bold mb-2">${data.title}</h3>
+              <p class="text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">${data.desc}</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              ${data.items
+                        .map(
+                            (item) => `
+                <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-[var(--bg-surface-alt)] border border-[var(--border-color)] hover:border-neonDark/60 dark:hover:border-neon/60 hover:-translate-y-0.5 transition">
+                  <span class="w-2 h-2 rounded-full bg-neonDark dark:bg-neon shrink-0"></span>
+                  <span class="text-xs sm:text-sm font-medium">${item}</span>
+                </div>`
+                        )
+                        .join('')}
+            </div>
+          </div>
+        `;
+
+                document.querySelectorAll('.skill-tab').forEach((btn) => {
+                    const isActive = btn.dataset.tab === currentSkillTab;
+                    btn.className = isActive
+                        ? 'skill-tab active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-neonDark dark:border-neon bg-neon/15 text-neonDark dark:text-neon transition'
+                        : 'skill-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition';
+                });
+            }
+
+            document.querySelectorAll('.skill-tab').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    currentSkillTab = btn.dataset.tab;
+                    renderSkillPanel();
+                });
+            });
+
+            const modal = document.getElementById('credential-modal');
+            const modalIssuer = document.getElementById('modal-issuer');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalDate = document.getElementById('modal-date');
+
+            function populateCredentialModal(key) {
+                const langCreds = credentialsByLang[currentLang] || credentialsByLang.en;
+                const info = langCreds[key];
+                if (!info) return;
+                if (modalIssuer) modalIssuer.textContent = info.issuer;
+                if (modalTitle) modalTitle.textContent = info.title;
+                if (modalDesc) modalDesc.textContent = info.desc;
+                if (modalDate) modalDate.textContent = info.date;
+            }
+
+            document.querySelectorAll('.view-cred-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    if (!modal) return;
+                    activeCredKey = btn.dataset.credKey || null;
+                    if (activeCredKey) {
+                        populateCredentialModal(activeCredKey);
+                    }
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+            });
+
+            function closeModal() {
+                if (!modal) return;
+                activeCredKey = null;
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+
+            const closeModalBtn = document.getElementById('close-modal');
+            const modalOkBtn = document.getElementById('modal-ok');
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+            if (modalOkBtn) modalOkBtn.addEventListener('click', closeModal);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && activeCredKey) closeModal();
+            });
+
+            const langBtn = document.getElementById('lang-toggle');
+            function applyLanguage(lang, notify) {
+                currentLang = lang === 'ar' ? 'ar' : 'en';
+                htmlEl.setAttribute('lang', currentLang);
+                htmlEl.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+                document.title = t('pageTitle');
+
+                if (langBtn) {
+                    langBtn.textContent = currentLang === 'en' ? 'AR' : 'EN';
+                    langBtn.setAttribute('title', currentLang === 'en' ? 'التبديل إلى العربية' : 'Switch to English');
+                }
+
+                document.querySelectorAll('[data-i18n]').forEach((el) => {
+                    const key = el.getAttribute('data-i18n');
+                    const val = t(key);
+                    if (val) el.textContent = val;
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    const val = t(key);
+                    if (val) el.setAttribute('placeholder', val);
+                });
+
+                const activeRoles = rolesByLang[currentLang] || rolesByLang.en;
+                roleIndex = 0;
+                deleting = false;
+                charIndex = activeRoles[0].length;
+                if (typedEl) typedEl.textContent = activeRoles[0];
+
+                renderSkillPanel();
+                if (activeCredKey) populateCredentialModal(activeCredKey);
+
+                try { localStorage.setItem('aa_lang', currentLang); } catch (e) { }
+                if (notify) showToast(t('toastLang'));
+            }
+
+            if (langBtn) {
+                langBtn.addEventListener('click', () => {
+                    applyLanguage(currentLang === 'en' ? 'ar' : 'en', true);
+                });
+            }
+
+            document.querySelectorAll('.copy-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const text = btn.dataset.copy || '';
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            showToast(`${t('toastCopiedPrefix')}${text}`);
+                        }).catch(() => fallbackCopy(text));
+                    } else {
+                        fallbackCopy(text);
+                    }
+                });
+            });
+
+            function fallbackCopy(text) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = text;
+                tempInput.style.position = 'fixed';
+                tempInput.style.opacity = '0';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(`${t('toastCopiedPrefix')}${text}`);
+                } catch (err) {
+                    showToast(t('toastCopyFail'));
+                }
+                document.body.removeChild(tempInput);
+            }
+
+            const cvBtn = document.getElementById('download-cv-btn');
+            if (cvBtn) {
+                cvBtn.addEventListener('click', () => {
+                    showToast(t('toastDownloadCv'));
+                });
+            }
+
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('c-name').value.trim();
+                    const email = document.getElementById('c-email').value.trim();
+                    const subject = document.getElementById('c-subject').value.trim();
+                    const message = document.getElementById('c-message').value.trim();
+                    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+                    window.location.href = `mailto:3bdoahmed75@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    showToast(t('toastOpeningEmail'));
+                    contactForm.reset();
+                });
+            }
+
+            const whatsappBtn = document.getElementById('whatsapp-send-btn');
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('click', () => {
+                    const name = document.getElementById('c-name').value.trim();
+                    const subject = document.getElementById('c-subject').value.trim();
+                    const message = document.getElementById('c-message').value.trim();
+                    let text;
+                    if (currentLang === 'ar') {
+                        text = name || message
+                            ? `مرحباً عبدالرحمن، أنا ${name || 'زائر'}. الموضوع: ${subject || 'استفسار عن مشروع'}. ${message}`
+                            : 'مرحباً عبدالرحمن، اطلعت على معرض أعمالك في هندسة البيانات وأود التواصل معك.';
+                    } else {
+                        text = name || message
+                            ? `Hi Abdelrahman, I'm ${name || 'a visitor'}. Subject: ${subject || 'Project Inquiry'}. ${message}`
+                            : 'Hi Abdelrahman, I saw your Data Engineering portfolio and would like to connect.';
+                    }
+                    showToast(t('toastOpeningWhatsapp'));
+                    window.open(`https://wa.me/201025609781?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+                });
+            }
+
+            const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+            revealEls.forEach((el) => revealObserver.observe(el));
+
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        const el = entry.target;
+                        const target = parseFloat(el.dataset.target || '0');
+                        const isDecimal = el.dataset.decimal === 'true';
+                        const duration = 1100;
+                        const start = performance.now();
+
+                        function tick(now) {
+                            const p = Math.min(1, (now - start) / duration);
+                            const eased = 1 - Math.pow(1 - p, 3);
+                            const val = target * eased;
+                            el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toString();
+                            if (p < 1) requestAnimationFrame(tick);
+                        }
+                        requestAnimationFrame(tick);
+                        obs.unobserve(el);
+                    });
+                },
+                { threshold: 0.4 }
+            );
+            counters.forEach((el) => counterObserver.observe(el));
+
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach((link) => {
+                                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                            });
+                        }
+                    });
+                },
+                { rootMargin: '-40% 0px -50% 0px' }
+            );
+            sections.forEach((sec) => navObserver.observe(sec));
+
+            try {
+                const savedTheme = localStorage.getItem('aa_theme');
+                if (savedTheme === 'light') htmlEl.classList.remove('dark');
+                const savedLang = localStorage.getItem('aa_lang');
+                if (savedLang === 'ar') {
+                    applyLanguage('ar', false);
+                } else {
+                    applyLanguage('en', false);
+                }
+            } catch (e) {
+                renderSkillPanel();
+            }
+        })();
+    </script>
+</body>
+
+</html>
